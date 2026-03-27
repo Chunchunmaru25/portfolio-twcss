@@ -1,0 +1,106 @@
+import React from 'react';
+import styled from 'styled-components';
+import '../../../src/index.css'
+import { useState, useEffect } from 'react';
+import FlowingMenu from '../reactbits/FlowingMenu';
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler"
+import { Button } from '../ui/button';
+import gsap from 'gsap';
+
+const StyledWrapper = styled.div`
+        .hamburger {
+            cursor: pointer;
+        }
+
+        .hamburger input {
+            display: none;
+        }
+
+        .hamburger svg {
+            height: 3em;
+            transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .line {
+            fill: none;
+            stroke: currentColor;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-width: 3;
+            transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+                        stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .line-top-bottom {
+            stroke-dasharray: 12 63;
+        }
+
+        .hamburger input:checked + svg {
+            transform: rotate(-45deg);
+        }
+
+        .hamburger input:checked + svg .line-top-bottom {
+            stroke-dasharray: 20 300;
+            stroke-dashoffset: -32.42;
+        }`;
+
+const demoItems = [
+    { link: '#', text: 'Home', image: '../../../public/images/home.avif' },
+    { link: '#', text: 'About', image: '../../../public/images/about.png' },
+    { link: '#', text: 'Skills', image: '../../../public/images/skills.avif' },
+    { link: '#', text: 'Resume', image: '../../../public/images/resume.jpg' },
+    { link: '#', text: 'Services', image: '../../../public/images/services.jpg' },
+    { link: '#', text: 'Portfolio', image: '../../../public/images/portfolio.jpg' },
+    { link: '#', text: 'Contact', image: '../../../public/images/contact.jpg' },
+];
+function Header() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsOpen(!isOpen)
+    };
+
+    return (
+        <>
+            {isOpen && (
+                <div
+                    id="openStagger"
+                    className="h-full w-full fixed top-0 left-0 transition-opacity duration-300 z-999"
+                >
+                    <FlowingMenu
+                        items={demoItems || []}
+                        speed={15}
+                        textColor="#ffffff"
+                        bgColor="#060010"
+                        marqueeBgColor="#ffffff"
+                        marqueeTextColor="#060010"
+                        borderColor="#ffffff"
+                    />
+                </div>
+            )}
+
+            <StyledWrapper className="fixed top-10 right-10 z-1000">
+                <label className="hamburger cursor-pointer">
+                    <input
+                        type="checkbox"
+                        className="hidden"
+                        checked={isOpen}
+                        onChange={toggleMenu}
+                    />
+                    <svg viewBox="0 0 32 32">
+                        <path
+                            className="line line-top-bottom stroke-current"
+                            d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+                        />
+                        <path
+                            className="line stroke-current"
+                            d="M7 16 27 16"
+                        />
+                    </svg>
+                </label>
+            </StyledWrapper>
+        </>
+    );
+}
+
+export default Header;
