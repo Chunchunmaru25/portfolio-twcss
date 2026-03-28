@@ -1,16 +1,39 @@
-# React + Vite
+# My Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal portfolio! This project showcases my skills, projects, and experience in web development.
 
-Currently, two official plugins are available:
+## 🚀 About
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This is a **modern, responsive portfolio website** built with the latest frontend and UI technologies. It highlights my projects, skills, and contact information in a clean and interactive way.
 
-## React Compiler
+## 🛠️ Built With
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React.js** – For building interactive UI components  
+- **Node.js** – Backend and environment setup  
+- **NPM** – Dependency management  
+- **Tailwind CSS** – Utility-first CSS framework for styling  
+- **UiVerse** – UI component library  
+- **ReactBits** – Reusable React components  
+- **MagicUI** – Advanced UI interactions  
+- **ShadCn** – Tailwind-based component system  
+- **SVGRepo** – Vector icons and illustrations  
+- **TailwindFlex** – Flexible Tailwind layouts  
 
-## Expanding the ESLint configuration
+## 🌟 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Fully responsive layout for desktop and mobile  
+- Modern UI with interactive components  
+- Project showcase section with images and links  
+- Contact form with smooth animations  
+- Dark/light theme support (if implemented)  
+- Optimized for performance and accessibility  
+
+## ⚡ Getting Started
+
+### Prerequisites
+
+Make sure you have **Node.js** and **NPM** installed:
+
+```bash
+node -v
+npm -v
