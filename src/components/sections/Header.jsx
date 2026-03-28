@@ -4,9 +4,6 @@ import '../../../src/index.css'
 import { useState, useEffect } from 'react';
 import FlowingMenu from '../reactbits/FlowingMenu';
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler"
-import { Button } from '../ui/button';
-import gsap from 'gsap';
-import DarkModeSwitch from '../twcss/DarkModeSwitch';
 
 const StyledWrapper = styled.div`
         .hamburger {
@@ -76,7 +73,7 @@ const ControlsWrapper = styled.div`
   }
 `;
 const demoItems = [
-    { link: '#', text: 'Home', image: '../../../public/images/home.avif' },
+    { link: '#', text: 'Home', image: '../../../public/images/lanyard.png' },
     { link: '#', text: 'About', image: '../../../public/images/about.png' },
     { link: '#', text: 'Skills', image: '../../../public/images/skills.avif' },
     { link: '#', text: 'Resume', image: '../../../public/images/resume.jpg' },
