@@ -9,6 +9,7 @@ import GridBackground from "@/components/twcss/GridBackground";
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import ScrollDown from "@/components/twcss/ScrollDown";
+import Lanyard from "@/components/reactbits/Lanyard";
 
 const StyledWrapper = styled.div`
   --bg: ${({ theme }) => (theme === "dark" ? "#050505" : "#f0f0f0")};
@@ -75,11 +76,15 @@ function Welcome() {
 
     return (
         <>
+
             <Header />
             <StyledWrapper className="relative w-full min-h-screen overflow-hidden" theme={isDarkMode ? "dark" : "light"}>
                 <div className="cyber-pattern absolute inset-0 z-0" />
                 <div className="relative z-10">
                     <Hero />
+                    <div className="bg-transparent absolute top-0 left-0 pointer-events-auto">
+                        <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
+                    </div>
                     {showScroll && (
                         <div className={`transition-opacity duration-500 absolute bottom-0 left-1/2 -translate-x-1/2 ${fadeOut ? "opacity-0" : "opacity-100"}`}>
                             <ScrollDown />
@@ -87,7 +92,6 @@ function Welcome() {
                     )}
                 </div>
             </StyledWrapper>
-
             <div className="bg-blue-100 h-screen">
                 asasd
             </div>
