@@ -6,6 +6,7 @@ import FlowingMenu from '../reactbits/FlowingMenu';
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler"
 import { Button } from '../ui/button';
 import gsap from 'gsap';
+import DarkModeSwitch from '../twcss/DarkModeSwitch';
 
 const StyledWrapper = styled.div`
         .hamburger {
@@ -44,6 +45,36 @@ const StyledWrapper = styled.div`
             stroke-dashoffset: -32.42;
         }`;
 
+const ControlsWrapper = styled.div`
+  position: fixed;
+  top: 2.5rem;  
+  right: 2.5rem;
+  display: flex;
+  align-items: center; 
+  gap: 2rem; 
+  z-index: 1000;
+
+  .toggler {
+    width: 2rem;   
+    height: 2rem; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hamburger-wrapper {
+    width: 2.5rem;   
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .hamburger svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+`;
 const demoItems = [
     { link: '#', text: 'Home', image: '../../../public/images/home.avif' },
     { link: '#', text: 'About', image: '../../../public/images/about.png' },
@@ -55,20 +86,34 @@ const demoItems = [
 ];
 function Header() {
     const [isOpen, setIsOpen] = useState(false);
+    const [showMenu, setShowMenu] = useState(false);
 
     const toggleMenu = () => {
-        setIsOpen(!isOpen)
+        if (!isOpen) {
+            setIsOpen(true);
+        } else {
+            setShowMenu(false);
+            setTimeout(() => setIsOpen(false), 500);
+        }
     };
+
+    useEffect(() => {
+        if (isOpen) {
+            const timer = setTimeout(() => setShowMenu(true), 10);
+            return () => clearTimeout(timer);
+        }
+    }, [isOpen]);
 
     return (
         <>
             {isOpen && (
                 <div
                     id="openStagger"
-                    className="h-full w-full fixed top-0 left-0 transition-opacity duration-300 z-999"
+                    className={`h-full w-full fixed top-0 left-0 z-[999] transition-opacity duration-500 ${showMenu ? "opacity-100" : "opacity-0"
+                        }`}
                 >
                     <FlowingMenu
-                        items={demoItems || []}
+                        items={demoItems}
                         speed={15}
                         textColor="#ffffff"
                         bgColor="#060010"
@@ -79,26 +124,34 @@ function Header() {
                 </div>
             )}
 
-            <StyledWrapper className="fixed top-10 right-10 z-1000">
-                <label className="hamburger cursor-pointer">
-                    <input
-                        type="checkbox"
-                        className="hidden"
-                        checked={isOpen}
-                        onChange={toggleMenu}
-                    />
-                    <svg viewBox="0 0 32 32">
-                        <path
-                            className="line line-top-bottom stroke-current"
-                            d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
-                        />
-                        <path
-                            className="line stroke-current"
-                            d="M7 16 27 16"
-                        />
-                    </svg>
-                </label>
-            </StyledWrapper>
+            <ControlsWrapper>
+                <div className="toggler">
+                    <AnimatedThemeToggler />
+                </div>
+
+                <div className="hamburger-wrapper">
+                    <StyledWrapper>
+                        <label className="hamburger cursor-pointer">
+                            <input
+                                type="checkbox"
+                                className="hidden"
+                                checked={isOpen}
+                                onChange={toggleMenu}
+                            />
+                            <svg viewBox="0 0 32 32">
+                                <path
+                                    className="line line-top-bottom stroke-current"
+                                    d="M27 10 13 10C10.8 10 9 8.2 9 6 9 3.5 10.8 2 13 2 15.2 2 17 3.8 17 6L17 26C17 28.2 18.8 30 21 30 23.2 30 25 28.2 25 26 25 23.8 23.2 22 21 22L7 22"
+                                />
+                                <path
+                                    className="line stroke-current"
+                                    d="M7 16 27 16"
+                                />
+                            </svg>
+                        </label>
+                    </StyledWrapper>
+                </div>
+            </ControlsWrapper>
         </>
     );
 }

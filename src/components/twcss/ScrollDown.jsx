@@ -16,15 +16,16 @@ const ScrollDown = () => {
       <div className="main__action" onClick={() => { setScrollDown() }}>
         <a className="main__scroll" href="#">
           <div className="main__scroll-box">
-            <svg viewBox="0 0 24 24">
+            <svg viewBox="0 0 24 24" className='fill-black dark:fill-white'>
               <path d="M0 0h24v24H0z" fill="none" />
               <path
                 d="M11.9997 13.1716L7.04996 8.22186L5.63574 9.63607L11.9997 16L18.3637 9.63607L16.9495 8.22186L11.9997 13.1716Z"
-                fill="currentColor"
               />
             </svg>
           </div>
-          <span className="main__scroll-text">Scroll Down</span>
+          <span className="main__scroll-text text-black dark:text-white whitespace-nowrap">
+            Scroll Down
+          </span>
         </a>
       </div>
     </StyledWrapper>
@@ -47,6 +48,10 @@ const StyledWrapper = styled.div`
     align-items: center;
   }
 
+  svg{
+  animation: scroll-down 1.5s infinite;
+  }
+  
   /* Clickable area */
   .main__scroll {
     display: flex;
@@ -68,13 +73,11 @@ const StyledWrapper = styled.div`
   svg {
     width: 100%;
     height: 100%;
-    color: rgba(28, 28, 30, 1);
   }
 
   /* Text */
   .main__scroll-text {
     font-size: 12px;
-    color: rgba(28, 28, 30, 1);
   }
 
   /* Hover animation */

@@ -214,7 +214,7 @@ export function SmoothCursor({
         translateY: "-50%",
         rotate: rotation,
         scale: scale,
-        zIndex: 1001,
+        zIndex: 99999,
         pointerEvents: "none",
         willChange: "transform",
         opacity: isVisible ? 1 : 0,

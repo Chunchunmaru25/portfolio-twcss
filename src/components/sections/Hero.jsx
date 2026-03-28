@@ -1,11 +1,18 @@
-import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
 import ProfileCard from "@/components/reactbits/ProfileCard";
 import { TypingAnimation } from "@/components/ui/typing-animation";
 import ContainedBtn from "@/components/twcss/ContainedBtn";
 import OutlinedBtn from "@/components/twcss/OutlinedBtn";
 import ScrollDown from "../twcss/ScrollDown";
-
 function Hero() {
+
+    const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const mode = isDark ? 'dark' : 'light';
+    const theme = localStorage.getItem('theme') || mode;
+    const path = theme === 'dark'
+        ? '/images/toga-trans-shade.png'
+        : '/images/toga-trans.png';
+
     return (
         <>
             <section className="relative flex flex-col md:flex-row items-center max-w-screen-xl px-4 py-8 mx-auto f-full lg:h-screen">
@@ -44,7 +51,7 @@ function Hero() {
                             handle="clarenceduerme"
                             status="Online"
                             contactText="Contact Me"
-                            avatarUrl="/images/toga-trans.png"
+                            avatarUrl={path}
                             showUserInfo
                             enableTilt
                             enableMobileTilt
@@ -58,9 +65,6 @@ function Hero() {
                 </div>
             </section>
 
-            <div>
-                <ScrollDown />
-            </div>
         </>
     )
 }
