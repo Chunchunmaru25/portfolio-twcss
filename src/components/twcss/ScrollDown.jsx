@@ -2,10 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ScrollDown = () => {
+  // const setScrollDown = () => {
+  //   window.scrollBy({
+  //     top: 300,
+  //     left: 0,
+  //     behavior: "smooth"
+  //   });
+  // };
   const setScrollDown = () => {
-    window.scrollBy({
-      top: 300,
-      left: 0,
+    const section = document.getElementById("about");
+    section?.scrollIntoView({
       behavior: "smooth"
     });
   };

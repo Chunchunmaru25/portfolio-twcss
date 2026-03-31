@@ -1,15 +1,14 @@
 import Header from "@/components/sections/Header";
-import { Button } from "@/components/ui/button";
-import ProfileCard from "@/components/reactbits/ProfileCard";
-import { TypingAnimation } from "@/components/ui/typing-animation";
-import ContainedBtn from "@/components/twcss/ContainedBtn";
-import OutlinedBtn from "@/components/twcss/OutlinedBtn";
 import Hero from "@/components/sections/Hero";
-import GridBackground from "@/components/twcss/GridBackground";
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import ScrollDown from "@/components/twcss/ScrollDown";
 import Lanyard from "@/components/reactbits/Lanyard";
+import About from "@/components/sections/About";
+import Stats from "@/components/sections/Stats";
+import SpotlightCard from "@/components/SpotlightCard";
+import Card from "@/components/twcss/PrajapatiCard";
+import { color } from "framer-motion";
 
 const StyledWrapper = styled.div`
   --bg: ${({ theme }) => (theme === "dark" ? "#050505" : "#f0f0f0")};
@@ -31,6 +30,7 @@ const StyledWrapper = styled.div`
     animation: cyber-move 10s linear infinite;
   }
 `;
+
 function Welcome() {
     const [isDarkMode, setIsDarkMode] = useState(false);
     useEffect(() => {
@@ -74,6 +74,14 @@ function Welcome() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [showScroll]);
 
+    // STATS
+    const cardStats = [
+        { title: "Happy Clients", color: "bg-[var(--pallete-1)]", svg: `<svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M19.5 12C19.5 16.1421 16.1421 19.5 12 19.5C7.85786 19.5 4.5 16.1421 4.5 12C4.5 7.85786 7.85786 4.5 12 4.5C16.1421 4.5 19.5 7.85786 19.5 12ZM21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12ZM9.375 10.5C9.99632 10.5 10.5 9.99632 10.5 9.375C10.5 8.75368 9.99632 8.25 9.375 8.25C8.75368 8.25 8.25 8.75368 8.25 9.375C8.25 9.99632 8.75368 10.5 9.375 10.5ZM15.75 9.375C15.75 9.99632 15.2463 10.5 14.625 10.5C14.0037 10.5 13.5 9.99632 13.5 9.375C13.5 8.75368 14.0037 8.25 14.625 8.25C15.2463 8.25 15.75 8.75368 15.75 9.375ZM12 15C10.1783 15 9 13.8451 9 12.75H7.5C7.5 14.9686 9.67954 16.5 12 16.5C14.3205 16.5 16.5 14.9686 16.5 12.75H15C15 13.8451 13.8217 15 12 15Z" fill="#c8a76a"></path> </g></svg>` },
+        { title: "Projects", color: "bg-[var(--pallete-2)]", svg: `<svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M10 22C7.17157 22 5.75736 22 4.87868 21.1213C4 20.2426 4 18.8284 4 16V8C4 5.17157 4 3.75736 4.87868 2.87868C5.75736 2 7.17157 2 10 2H14C16.8284 2 18.2426 2 19.1213 2.87868C20 3.75736 20 5.17157 20 8M14 22C16.8284 22 18.2426 22 19.1213 21.1213C20 20.2426 20 18.8284 20 16V12" stroke="#c7ec83" stroke-width="1.5" stroke-linecap="round"></path> <path d="M19.8978 16H7.89778C6.96781 16 6.50282 16 6.12132 16.1022C5.08604 16.3796 4.2774 17.1883 4 18.2235" stroke="#9bbe5b" stroke-width="1.5"></path> <path d="M7 16V9M7 2.5V5" stroke="#c7ec83" stroke-width="1.5" stroke-linecap="round"></path> <path d="M13 16V19.5309C13 19.8065 13 19.9443 12.9051 20C12.8103 20.0557 12.6806 19.9941 12.4211 19.8708L11.1789 19.2808C11.0911 19.2391 11.0472 19.2182 11 19.2182C10.9528 19.2182 10.9089 19.2391 10.8211 19.2808L9.57889 19.8708C9.31943 19.9941 9.18971 20.0557 9.09485 20C9 19.9443 9 19.8065 9 19.5309V16.45" stroke="#c7ec83" stroke-width="1.5" stroke-linecap="round"></path> </g></svg>` },
+        { title: "Hours Of Support", color: "bg-[var(--pallete-3)]", svg: `<svg width="64px" height="64px" viewBox="0 0 24 24" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="supportIconTitle" stroke="#ff9470" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title id="supportIconTitle">Support</title> <path d="M18,9 L16,9 C14.8954305,9 14,9.8954305 14,11 L14,13 C14,14.1045695 14.8954305,15 16,15 L16,15 C17.1045695,15 18,14.1045695 18,13 L18,9 C18,4.02943725 13.9705627,0 9,0 C4.02943725,0 0,4.02943725 0,9 L0,13 C1.3527075e-16,14.1045695 0.8954305,15 2,15 L2,15 C3.1045695,15 4,14.1045695 4,13 L4,11 C4,9.8954305 3.1045695,9 2,9 L0,9" transform="translate(3 3)"></path> <path d="M21,14 L21,18 C21,20 20.3333333,21 19,21 C17.6666667,21 16,21 14,21"></path> </g></svg>` },
+        { title: "Projects Delivered", color: "bg-[var(--pallete-4)]", svg: `<svg version="1.1" id="CHECKLIST" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" height="64px" viewBox="0 0 1800 1800" enable-background="new 0 0 1800 1800" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path fill="#333333" d="M1506.693,279.092h-150.36v-85.277c0-17.353-14.065-31.418-31.419-31.418h-227.317 C1078.205,70.574,996.5,2.304,900.003,2.304c-96.499,0-178.202,68.27-197.595,160.092H475.091 c-17.353,0-31.419,14.065-31.419,31.418v85.277H293.307c-17.353,0-31.419,14.066-31.419,31.419v1455.764 c0,17.353,14.066,31.419,31.419,31.419h1213.386c17.354,0,31.42-14.066,31.42-31.419V310.511 C1538.113,293.158,1524.047,279.092,1506.693,279.092z M506.511,225.234h223.28c16.617,0,30.354-12.935,31.362-29.517 c4.436-73.219,65.424-130.574,138.85-130.574c73.425,0,134.413,57.355,138.849,130.574c1.009,16.582,14.746,29.517,31.363,29.517 h223.28v53.858v62.838v74.81H506.511v-74.81v-62.838V225.234z M1475.274,1734.855H324.728V341.93h118.944v106.229 c0,17.354,14.066,31.419,31.419,31.419h849.823c17.354,0,31.419-14.066,31.419-31.419V341.93h118.941V1734.855z"></path> <path fill="#333333" d="M663.633,684.019L534.366,813.291l-57.803-57.806c-12.272-12.265-32.164-12.265-44.437,0 c-12.269,12.272-12.269,32.164,0,44.437l80.021,80.022c6.136,6.132,14.176,9.201,22.219,9.201c8.043,0,16.083-3.069,22.219-9.201 l151.486-151.486c12.269-12.273,12.269-32.165,0-44.438C695.799,671.755,675.907,671.755,663.633,684.019z"></path> <path fill="#333333" d="M824.996,750.563c-17.354,0-31.419,14.066-31.419,31.419c0,17.354,14.066,31.419,31.419,31.419h520.665 c17.354,0,31.419-14.066,31.419-31.419c0-17.353-14.065-31.419-31.419-31.419H824.996z"></path> <path fill="#333333" d="M663.633,1039.925l-129.267,129.272l-57.803-57.807c-12.272-12.265-32.164-12.265-44.437,0 c-12.269,12.272-12.269,32.164,0,44.438l80.021,80.021c6.136,6.133,14.176,9.2,22.219,9.2c8.043,0,16.083-3.067,22.219-9.2 l151.486-151.486c12.269-12.272,12.269-32.163,0-44.438C695.799,1027.66,675.907,1027.66,663.633,1039.925z"></path> <path fill="#333333" d="M1345.661,1106.467H824.996c-17.354,0-31.419,14.066-31.419,31.42s14.066,31.42,31.419,31.42h520.665 c17.354,0,31.419-14.066,31.419-31.42S1363.015,1106.467,1345.661,1106.467z"></path> <path fill="#333333" d="M663.633,1395.83l-129.267,129.272l-57.803-57.808c-12.272-12.264-32.164-12.264-44.437,0 c-12.269,12.274-12.269,32.166,0,44.439l80.021,80.021c6.136,6.132,14.176,9.199,22.219,9.199c8.043,0,16.083-3.067,22.219-9.199 l151.486-151.486c12.269-12.274,12.269-32.166,0-44.438C695.799,1383.566,675.907,1383.566,663.633,1395.83z"></path> <path fill="#333333" d="M1345.661,1462.373H824.996c-17.354,0-31.419,14.066-31.419,31.42s14.066,31.418,31.419,31.418h520.665 c17.354,0,31.419-14.064,31.419-31.418S1363.015,1462.373,1345.661,1462.373z"></path> </g> </g></svg>` },
+    ]
+
     return (
         <>
 
@@ -82,7 +90,7 @@ function Welcome() {
                 <div className="cyber-pattern absolute inset-0 z-0" />
                 <div className="relative z-10">
                     <Hero />
-                    <div className="bg-transparent absolute top-0 left-0 pointer-events-auto">
+                    <div className="bg-transparent absolute top-0 left-0 pointer-events-auto z-[99999]">
                         <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
                     </div>
                     {showScroll && (
@@ -92,8 +100,25 @@ function Welcome() {
                     )}
                 </div>
             </StyledWrapper>
-            <div className="bg-blue-100 h-screen">
-                asasd
+
+            {/* about me */}
+            <div id="about" className="bg-base-300">
+                <About />
+            </div>
+
+            {/* STATS */}
+            <div className="flex justify-center items-center gap-8 flex-wrap py-20 bg-chart-1 dark:bg-chart-4">
+                {cardStats.map((card, index) => (
+                    <Card
+                        key={index}
+                        title={card.title}
+                        svg={card.svg}
+                        color={card.color}
+                    />
+                ))}
+            </div>
+            <div className="h-screen">
+
             </div>
         </>
     )

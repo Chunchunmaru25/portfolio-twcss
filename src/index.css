@@ -9,6 +9,7 @@
   cursor: none;
 }
 
+
 @theme inline {
     --font-heading: var(--font-sans);
     --font-sans: 'Geist Variable', sans-serif;
@@ -94,6 +95,11 @@
     --sidebar-accent-foreground: oklch(0.205 0 0);
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.708 0 0);
+
+    --pallete-1: #8A7650;
+    --pallete-2: #8E977D;
+    --pallete-3: #D53E0F;
+    --pallete-4: #a80c52;
 }
 
 .dark {
