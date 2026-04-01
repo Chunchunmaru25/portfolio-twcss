@@ -173,6 +173,7 @@ export default function Resume() {
                                         <div>
                                             Specialized in Web Development and Web UI/UX Graphics Design with a enough knowledge in Artificial Intelligence and Machine Learning.
                                         </div>
+                                        asdasdsadsad
                                     </div>
                                 </div>
                             </div>
