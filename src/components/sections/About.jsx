@@ -1,6 +1,6 @@
 import React from "react";
 import { Mail, Phone, MapPin, Download, MessageCircle, CheckCircle } from "lucide-react";
-
+import Toga from '../../assets/images/toga.jpg'
 const About = () => {
     return (
         <section id="about" className="py-20 bg-white dark:bg-background">
@@ -27,7 +27,7 @@ const About = () => {
                             <div className="relative mb-6">
                                 <div className="w-40 h-40 mx-auto rounded-full overflow-hidden border-4 border-indigo-500 shadow-lg">
                                     <img
-                                        src="/images/toga.jpg"
+                                        src={Toga}
                                         alt="Profile"
                                         className="w-full h-full object-cover"
                                     />
@@ -41,7 +41,7 @@ const About = () => {
                                 Clarence Duerme
                             </h3>
                             <p className="text-indigo-500 mb-6">
-                                Web Developer & UI/UX Web Designer
+                                Web Developer
                             </p>
 
 
@@ -71,7 +71,7 @@ const About = () => {
                                 </a>
 
                                 <a
-                                    href="#"
+                                    href="https://www.google.com/maps/place/Mamatid,+Cabuyao+City,+Laguna/@14.2346491,121.1633434,8742m/data=!3m1!1e3!4m6!3m5!1s0x33bd62147654b0f5:0xfaaafa6833d28a05!8m2!3d14.2373479!4d121.1509924!16s%2Fm%2F05q4x0c?entry=ttu&g_ep=EgoyMDI2MDMyOS4wIKXMDSoASAFQAw%3D%3D"
                                     className="flex items-center gap-3 p-3 rounded-lg border text-sm bg-gray-50 dark:bg-neutral-800 hover:bg-indigo-500 hover:text-white transition"
                                 >
                                     <MapPin size={16} />
@@ -105,13 +105,13 @@ const About = () => {
 
                         <div className="grid grid-cols-2 gap-6 mb-8 bg-gray-100 dark:bg-neutral-800 p-6 rounded-2xl shadow">
                             <div className="text-center">
-                                <div className="text-2xl font-bold text-indigo-500">10+</div>
+                                <div className="text-2xl font-bold text-indigo-500">fetching ...</div>
                                 <div className="text-sm text-gray-500">
                                     Projects Completed
                                 </div>
                             </div>
                             <div className="text-center">
-                                <div className="text-2xl font-bold text-indigo-500">1+</div>
+                                <div className="text-2xl font-bold text-indigo-500">fetching ...</div>
                                 <div className="text-sm text-gray-500">
                                     Years Experience
                                 </div>

@@ -1,0 +1,59 @@
+{
+    "softSkills": [
+        {
+            "name": "Initiative and quick learning ability",
+            "progress": 95
+        },
+        {
+            "name": "Strong multi-tasking and attention to details",
+            "progress": 85
+        },
+        {
+            "name": "Time management",
+            "progress": 80
+        },
+        {
+            "name": "Ability to work effectively in a team environment",
+            "progress": 85
+        }
+    ],
+    "frontendSkills": [
+        {
+            "language": "HTML",
+            "description": "Strong understanding of HTML5 for structured and semantic markup",
+            "progress": 85
+        },
+        {
+            "language": "CSS (Vanilla)",
+            "description": "Hand-coded responsive layouts and animations using vanilla CSS.",
+            "progress": 85
+        },
+        {
+            "language": "JavaScript",
+            "description": "Basic knowledge of JS for interactivity and DOM manipulation.",
+            "progress": 80
+        },
+        {
+            "language": "Tailwind",
+            "description": "Styled modern UIs efficiently using Tailwind utility first classes.",
+            "progress": 65
+        }
+    ],
+    "backendSkills": [
+        {
+            "language": "PHP",
+            "description": "Built dynamic websites and handled backend logic using PHP.",
+            "progress": 80
+        },
+        {
+            "language": "LARAVEL",
+            "description": "Developed web applications using Laravel package such as Fortify, Sanctum, Jetstream, Breeze, etc.",
+            "progress": 80
+        },
+        {
+            "language": "MYSQL",
+            "description": "Efficient in database design, queries, and data management with MySQL.",
+            "progress": 80
+        }
+    ]
+}

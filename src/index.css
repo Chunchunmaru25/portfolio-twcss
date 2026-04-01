@@ -52,6 +52,28 @@
     --radius-3xl: calc(var(--radius) * 2.2);
     --radius-4xl: calc(var(--radius) * 2.6);
     --animate-blink-cursor: blink-cursor 1.2s step-end infinite;
+
+
+
+    --color-pallete-1: var(--pallete-1);
+    --color-pallete-2: var(--pallete-2);
+    --color-pallete-3: var(--pallete-3);
+    --color-pallete-4: var(--pallete-4);
+
+    --color-neutral: var(--color-neutral);
+    --color-surface: var(--color-surface);
+    --color-muted: var(--color-muted);
+    --color-text: var(--color-text);
+    --color-text-soft: var(--color-text-soft);
+
+    --color-green: var(--color-green);
+    --color-red: var(--color-red);
+    --color-orange: var(--color-orange);
+    --color-blue: var(--color-blue);
+    --color-purple: var(--color-purple);
+    --color-yellow: var(--color-yellow);
+    --color-pink: var(--color-pink);
+
   @keyframes blink-cursor {
   0%, 49% {
     opacity: 1;
@@ -96,10 +118,24 @@
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.708 0 0);
 
-    --pallete-1: #8A7650;
-    --pallete-2: #8E977D;
-    --pallete-3: #D53E0F;
-    --pallete-4: #a80c52;
+    --pallete-1: #F9F8F6;
+    --pallete-2: #EFE9E3;
+    --pallete-3: #D9CFC7;
+    --pallete-4: #C9B59C; 
+
+    --color-neutral: #F7F5F2;
+    --color-surface: #E8E3DC;
+    --color-muted: #B7AFA3;
+    --color-text-soft: #6B665E;
+    --color-text: #3D3A36;
+
+    --color-green: #7C8A7A;   
+    --color-red: #B76E6E;     
+    --color-orange: #C48A5A; 
+    --color-blue: #6F8599;    
+    --color-purple: #8A7C9E;  
+    --color-yellow: #C9B458;  
+    --color-pink: #C08A93;
 }
 
 .dark {
@@ -134,6 +170,25 @@
     --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.556 0 0);
+
+    --pallete-1: #1F1B18;
+    --pallete-2: #2A2521;
+    --pallete-3: #3A342F;
+    --pallete-4: #4A433D; 
+
+    --color-neutral: #1C1A18;
+    --color-surface: #2A2724;
+    --color-muted: #4A453F;
+    --color-text-soft: #A8A29A;
+    --color-text: #E7E5E4;
+
+    --color-green: #9FB3A8;
+    --color-red: #D08A8A;
+    --color-orange: #D4A373;
+    --color-blue: #8FA9BD;
+    --color-purple: #A79ABF;
+    --color-yellow: #D8C97A;
+    --color-pink: #D9A6AE; 
 }
 
 @layer base {

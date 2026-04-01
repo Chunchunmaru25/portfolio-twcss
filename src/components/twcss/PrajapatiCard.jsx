@@ -7,7 +7,7 @@ const Card = ({ title, svg, color }) => {
       <div className="card">
         <div className='flex flex-col items-center gap-4'>
           <div
-            className={`text-2xl rounded-full ${color} p-4 hover:scale-110 transition-transform duration-300`}
+            className={`text-2xl rounded-full ${color} dark:${color} p-4 hover:scale-110 transition-transform duration-300`}
             dangerouslySetInnerHTML={{ __html: svg }}
           />
           <div className='text-sm text-gray-500'>{title}</div>

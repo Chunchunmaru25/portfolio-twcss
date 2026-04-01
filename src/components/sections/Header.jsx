@@ -4,7 +4,23 @@ import '../../../src/index.css'
 import { useState, useEffect } from 'react';
 import FlowingMenu from '../reactbits/FlowingMenu';
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler"
-
+import {
+    aboutImg,
+    contactImg,
+    formalImg,
+    homeImg,
+    lanyardImg,
+    beachImg,
+    portfolioImg,
+    resumeImg,
+    servicesImg,
+    skillsImg,
+    togaTransShadeImg,
+    togaTransImg,
+    togaImg,
+    witiLogoCircleImg,
+    witiImg,
+} from '../../components/path/imagesPath'
 const StyledWrapper = styled.div`
         .hamburger {
             cursor: pointer;
@@ -73,13 +89,13 @@ const ControlsWrapper = styled.div`
   }
 `;
 const demoItems = [
-    { link: '#', text: 'Home', image: '../../../public/images/lanyard.png' },
-    { link: '#', text: 'About', image: '../../../public/images/about.png' },
-    { link: '#', text: 'Skills', image: '../../../public/images/skills.avif' },
-    { link: '#', text: 'Resume', image: '../../../public/images/resume.jpg' },
-    { link: '#', text: 'Services', image: '../../../public/images/services.jpg' },
-    { link: '#', text: 'Portfolio', image: '../../../public/images/portfolio.jpg' },
-    { link: '#', text: 'Contact', image: '../../../public/images/contact.jpg' },
+    { link: '#', text: 'Home', image: homeImg },
+    { link: '#', text: 'About', image: aboutImg },
+    { link: '#', text: 'Skills', image: skillsImg },
+    { link: '#', text: 'Resume', image: resumeImg },
+    { link: '#', text: 'Services', image: servicesImg },
+    { link: '#', text: 'Portfolio', image: portfolioImg },
+    { link: '#', text: 'Contact', image: contactImg },
 ];
 function Header() {
     const [isOpen, setIsOpen] = useState(false);
@@ -149,6 +165,9 @@ function Header() {
                     </StyledWrapper>
                 </div>
             </ControlsWrapper>
+            <div className='fixed bottom-0 right-0 text-[10px] font-extralight z-[9999999] p-2 text-gray-500'>
+                {import.meta.env.VITE_APP_VERSION}
+            </div>
         </>
     );
 }

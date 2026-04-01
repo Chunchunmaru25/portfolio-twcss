@@ -4,14 +4,31 @@ import { TypingAnimation } from "@/components/ui/typing-animation";
 import ContainedBtn from "@/components/twcss/ContainedBtn";
 import OutlinedBtn from "@/components/twcss/OutlinedBtn";
 import ScrollDown from "../twcss/ScrollDown";
+import {
+    aboutImg,
+    contactImg,
+    formalImg,
+    homeImg,
+    lanyardImg,
+    beachImg,
+    portfolioImg,
+    resumeImg,
+    servicesImg,
+    skillsImg,
+    togaTransShadeImg,
+    togaTransImg,
+    togaImg,
+    witiLogoCircleImg,
+    witiImg,
+} from '../../components/path/imagesPath'
 function Hero() {
 
     const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const mode = isDark ? 'dark' : 'light';
     const theme = localStorage.getItem('theme') || mode;
     const path = theme === 'dark'
-        ? '/images/toga-trans-shade.png'
-        : '/images/toga-trans.png';
+        ? togaTransShadeImg
+        : togaTransImg;
 
     return (
         <>
