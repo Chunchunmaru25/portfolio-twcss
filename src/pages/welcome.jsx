@@ -101,9 +101,9 @@ function Welcome() {
             <div className="flex justify-center items-center gap-8 flex-wrap py-20 bg-pallete-1 dark:bg-pallete-1">
                 <Stats />
             </div>
-            {/* <div>
+            <div>
                 <Skills />
-            </div> */}
+            </div>
             <div className="bg-red-100">
                 <Resume />
             </div>
