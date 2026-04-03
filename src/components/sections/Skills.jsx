@@ -1,5 +1,5 @@
 import RangeProgressWTooltip from "@/components/twcss/RangeProgressWTooltip";
-import Skill from '../../assets/json/skills.json';
+import Skill from '../../assets/json/Skills.json';
 export default function Skills() {
     const frontendSkills = Skill.frontendSkills;
     const backendSkills = Skill.backendSkills;
