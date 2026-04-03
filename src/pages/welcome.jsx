@@ -10,6 +10,8 @@ import Skills from "@/components/sections/Skills";
 import Resume from "@/components/sections/Resume";
 import TechStack from "@/components/sections/TechStack";
 import Portfolio from "@/components/sections/portfolio";
+import Faqs from "@/components/sections/Faqs";
+import Contact from "@/components/sections/Contact";
 
 const StyledWrapper = styled.div`
   --bg: ${({ theme }) => (theme === "dark" ? "#050505" : "#f0f0f0")};
@@ -38,8 +40,7 @@ function Welcome() {
         const updateTheme = () => {
             const theme = localStorage.getItem('theme');
             setIsDarkMode(
-                theme === 'dark' ||
-                (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
+                theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
             );
         };
         updateTheme();
@@ -95,30 +96,104 @@ function Welcome() {
             </StyledWrapper>
 
             {/* about me */}
-            <div id="about" className="bg-pall">
-                <About />
+            <div id="about" className="bg-background dark:bg-background" >
+                <section id="about" className="py-20">
+                    <div className="max-w-6xl mx-auto px-4">
+                        <div className="text-center mb-12">
+                            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+                                <div className="flex items-center gap-4">
+                                    <span className="flex-1 h-[8px] w-[8px] border rounded-xl bg-gray-400"></span>
+                                    <p className="whitespace-nowrap">About Me</p>
+                                    <span className="flex-1 h-[8px] w-[8px] border rounded-xl bg-gray-400"></span>
+                                </div>
+                            </h2>
+                            <p className="text-gray-600 dark:text-gray-400 mt-3 max-w-xl mx-auto">
+                                I am dedicated to continuous learning and growth, always eager to
+                                take on new challenges and improve my skills.
+                            </p>
+                        </div>
+                        <About />
+                    </div>
+                </section>
             </div>
 
             {/* STATS */}
-            <div className="flex justify-center items-center gap-8 flex-wrap py-20 bg-pallete-1 dark:bg-pallete-1">
+            <div className="flex justify-center items-center gap-8 flex-wrap py-20 bg-pallete-1 dark:bg-pallete-1" >
                 <Stats />
             </div>
-            <div>
+            <div className="mt-10">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+                        <div className="flex items-center gap-4">
+                            <span className="flex-1 h-[8px] w-[8px] border rounded-xl bg-gray-400"></span>
+                            <p className="whitespace-nowrap">Skills</p>
+                            <span className="flex-1 h-[8px] w-[8px] border rounded-xl bg-gray-400"></span>
+                        </div>
+                    </h2>
+                    <p className="text-gray-600 dark:text-gray-400 mt-3 max-w-xl mx-auto">
+                        Experienced in building academic responsive and dynamic web applications, with a passion for learning and improving my craft.
+                    </p>
+                </div>
                 <Skills />
             </div>
-            <div className="bg-red-100">
+            <div>
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+                        <div className="flex items-center gap-4">
+                            <span className="flex-1 h-[8px] w-[8px] border rounded-xl bg-gray-400"></span>
+                            <p className="whitespace-nowrap">Resume</p>
+                            <span className="flex-1 h-[8px] w-[8px] border rounded-xl bg-gray-400"></span>
+                        </div>
+                    </h2>
+                    <p className="text-gray-600 dark:text-gray-400 mt-3 max-w-xl mx-auto">
+                        A summary of my education, experience, and technical skills, showcasing my journey and growth as a developer.
+                    </p>
+                </div>
                 <Resume />
             </div>
-            <div>
+
+            {/* TECH STACK */}
+            <div id='techstack'>
                 <TechStack />
             </div>
+
+            {/* PORTFOLIO */}
             <div>
-                <div className="flex items-center gap-4">
-                    <span className="flex-1 h-[8px] w-[8px] border rounded-xl bg-gray-400"></span>
-                    <p className="whitespace-nowrap">FRONT END WEB DEVELOPMENT TOOLS</p>
-                    <span className="flex-1 h-[8px] w-[8px] border rounded-xl bg-gray-400"></span>
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+                        <div className="flex items-center gap-4">
+                            <span className="flex-1 h-[8px] w-[8px] border rounded-xl bg-gray-400"></span>
+                            <p className="whitespace-nowrap">Resume</p>
+                            <span className="flex-1 h-[8px] w-[8px] border rounded-xl bg-gray-400"></span>
+                        </div>
+                    </h2>
+                    <p className="text-gray-600 dark:text-gray-400 mt-3 max-w-xl mx-auto">
+                        A summary of my education, experience, and technical skills, showcasing my journey and growth as a developer.
+                    </p>
                 </div>
-                <Portfolio />
+                {/* <Portfolio /> */}
+                Fetching . . .
+            </div>
+
+            {/* ACCORDION */}
+            <div>
+                <Faqs />
+            </div>
+
+            <div>
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
+                        <div className="flex items-center gap-4">
+                            <span className="flex-1 h-[8px] w-[8px] border rounded-xl bg-gray-400"></span>
+                            <p className="whitespace-nowrap">Contact</p>
+                            <span className="flex-1 h-[8px] w-[8px] border rounded-xl bg-gray-400"></span>
+                        </div>
+                    </h2>
+                    <p className="text-gray-600 dark:text-gray-400 mt-3 max-w-xl mx-auto">
+                        Have a project in mind, a question, or just want to connect? I’m always open to discussing new opportunities, creative ideas, or collaborations—feel free to reach out anytime.
+                    </p>
+                </div>
+                <Contact />
             </div>
         </>
     )

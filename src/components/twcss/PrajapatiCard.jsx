@@ -29,7 +29,6 @@ const StyledWrapper = styled.div`
     backdrop-filter: blur(6px);
     border-radius: 17px;
     text-align: center;
-    cursor: pointer;
     transition: all 0.5s;
     display: flex;
     align-items: center;

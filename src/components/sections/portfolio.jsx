@@ -37,9 +37,9 @@ export default function Portfolio() {
                                 }
                             ]}
                         >
-                            <button className="mt-6 w-full py-4 bg-white text-zinc-900 font-semibold rounded-3xl">
+                            {/* <button className="mt-6 w-full py-4 bg-white text-zinc-900 font-semibold rounded-3xl">
                                 Holy Rosary of Cabuyao Hospital
-                            </button>
+                            </button> */}
                         </MorphingCard>
                     </div>
                 </div>
