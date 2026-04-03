@@ -160,7 +160,7 @@
 </head>
 
 <body>
-  <!-- <div id="loading">
+  <div id="loading">
     <div id="loading-content">
       <div class="terminal-wrapper">
         <div class="terminal-header">
@@ -171,11 +171,10 @@
         <div class="terminal" id="terminal"></div>
       </div>
     </div>
-  </div> -->
-  <!-- <div id="root" class="opacity hidden"></div> -->
-  <div id="root"></div>
+  </div>
+  <div id="root" class="opacity hidden"></div>
   <script type="module" src="/src/main.jsx"></script>
-  <!-- <script>
+  <script>
     if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.add('dark');
     } else {
@@ -293,7 +292,7 @@
       isLoaded = true;
       checkReady();
     });
-  </script> -->
+  </script>
 </body>
 
 </html>
