@@ -1,5 +1,5 @@
 // OTHERS
-import Happy from '../../assets/svg/happyClient.svg'
+import Happy from '../../assets/svg/Happy.svg'
 import HoursOfSupport from '../../assets/svg/HoursOfSupport.svg'
 import delivered from '../../assets/svg/delivered.svg'
 import projects from '../../assets/svg/projects.svg'
