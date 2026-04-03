@@ -5,7 +5,7 @@ import {
 } from 'lucide-react';
 
 // json
-import Skill from '../../assets/json/skills.json';
+import Skill from '../../assets/json/Skills.json';
 import About from '../../assets/json/AboutMe.json';
 
 // assets
@@ -115,20 +115,20 @@ export default function Resume() {
                                     <h1>Soft Skills</h1>
                                     <hr />
                                     <div className="text-[14px]">
-                                        {/* {softSkills.map((skill, index) => (
+                                        {softSkills.map((skill, index) => (
                                             <RangeProgressWTooltip
                                                 key={index}
                                                 language={skill.name}
                                                 progress={skill.progress}
                                                 margin='my-4'
                                             />
-                                        ))} */}
+                                        ))}
                                     </div>
 
                                     <h1>Technical Skills</h1>
                                     <hr />
                                     <div className="text-[14px]">
-                                        {/* {frontendSkills.map((skill, index) => (
+                                        {frontendSkills.map((skill, index) => (
                                             <RangeProgressWTooltip
                                                 key={index}
                                                 language={skill.language}
@@ -143,7 +143,7 @@ export default function Resume() {
                                                 progress={skill.progress}
                                                 margin='my-4'
                                             />
-                                        ))} */}
+                                        ))}
                                     </div>
                                 </div>
                             </div>
