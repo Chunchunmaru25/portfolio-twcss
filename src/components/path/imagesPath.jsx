@@ -14,20 +14,15 @@ import togaImg from "../../assets/images/toga.jpg";
 import witiLogoCircleImg from "../../assets/images/witi-logo-circle.jpg";
 import witiImg from "../../assets/images/witi.png";
 
+import googlefontsImg from "../../assets/images/TechStack/googlefonts.png"
+import magicuiImg from "../../assets/images/TechStack/magicui.png"
+import uiverseImg from "../../assets/images/TechStack/uiverse.png"
+import devslokauiImg from "../../assets/images/TechStack/devslokaui.png"
+import fontawesomeImg from "../../assets/images/TechStack/fontawesome.png"
+
 export {
-    aboutImg,
-    contactImg,
-    formalImg,
-    homeImg,
-    lanyardImg,
-    beachImg,
-    portfolioImg,
-    resumeImg,
-    servicesImg,
-    skillsImg,
-    togaTransShadeImg,
-    togaTransImg,
-    togaImg,
-    witiLogoCircleImg,
-    witiImg,
+    aboutImg, contactImg, formalImg, homeImg, lanyardImg, beachImg, portfolioImg, resumeImg,
+    servicesImg, skillsImg, togaTransShadeImg, togaTransImg, togaImg, witiLogoCircleImg, witiImg,
+
+    googlefontsImg, magicuiImg, uiverseImg, devslokauiImg, fontawesomeImg
 };

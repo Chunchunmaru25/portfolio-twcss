@@ -1,17 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Card = ({ title, svg, color }) => {
+const Card = ({ title, svg, color, style, imgSize, sideColor }) => {
   return (
     <StyledWrapper>
-      <div className="card">
-        <div className='flex flex-col items-center gap-4'>
+      <div
+        className={`card ${style}`}
+        style={{ boxShadow: `inset 0 0 10px ${sideColor}` }}
+      >
+        <div className="flex flex-col items-center gap-4">
           <div
-            className={`text-2xl rounded-full ${color} dark:${color} p-4 hover:scale-110 transition-transform duration-300`}
-            dangerouslySetInnerHTML={{ __html: svg }}
-          />
-          <div className='text-sm text-gray-500'>{title}</div>
-
+            className={`text-2xl rounded-full p-4 hover:scale-110 transition-transform duration-300`}
+            style={{ backgroundColor: color }}
+          >
+            <img className={`${imgSize}`} src={svg} alt="" />
+          </div>
+          <div className="text-sm text-gray-500">{title}</div>
         </div>
       </div>
     </StyledWrapper>
@@ -21,10 +25,7 @@ const Card = ({ title, svg, color }) => {
 const StyledWrapper = styled.div`
   .card {
     box-sizing: border-box;
-    width: 250px;
-    height: 230px;
     border: 1px solid white;
-    box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
     backdrop-filter: blur(6px);
     border-radius: 17px;
     text-align: center;

@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+
 import ProfileCard from "@/components/reactbits/ProfileCard";
 import { TypingAnimation } from "@/components/ui/typing-animation";
 import ContainedBtn from "@/components/twcss/ContainedBtn";
 import OutlinedBtn from "@/components/twcss/OutlinedBtn";
-import ScrollDown from "../twcss/ScrollDown";
 import {
     aboutImg,
     contactImg,
@@ -53,8 +52,8 @@ function Hero() {
                         </p>
                         <div className="mt-5 sm:flex md:mt-8">
                             <div className="flex gap-2">
-                                <ContainedBtn />
-                                <OutlinedBtn />
+                                <ContainedBtn text="View My Work" />
+                                <OutlinedBtn text="Get in Touch" />
                             </div>
                         </div>
                     </div>

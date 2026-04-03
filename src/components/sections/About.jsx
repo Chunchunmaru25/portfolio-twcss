@@ -1,6 +1,12 @@
 import React from "react";
-import { Mail, Phone, MapPin, Download, MessageCircle, CheckCircle } from "lucide-react";
+import {
+    Mail, Phone, MapPin, Download, MessageCircle,
+    CheckCircle, BriefcaseBusiness, MessageCircleMore
+} from "lucide-react";
 import Toga from '../../assets/images/toga.jpg'
+import CV from '../../../public/pdf/CV.pdf'
+import ContainedBtn from "@/components/twcss/ContainedBtn";
+import OutlinedBtn from "@/components/twcss/OutlinedBtn";
 const About = () => {
     return (
         <section id="about" className="py-20 bg-white dark:bg-background">
@@ -153,20 +159,16 @@ const About = () => {
                         </div>
                         <div className="flex gap-4 flex-wrap">
                             <a
-                                href="/assets/Clarence_Duerme_CV.pdf"
+                                href={CV}
                                 download
-                                className="flex items-center gap-2 px-6 py-3 bg-indigo-500 text-white rounded-lg font-semibold hover:translate-y-[-2px] hover:shadow-lg transition"
                             >
-                                <Download size={18} />
-                                Download CV
+                                <ContainedBtn text="Download CV" icon={<Download />} />
                             </a>
 
                             <a
                                 href="#contact"
-                                className="flex items-center gap-2 px-6 py-3 border border-gray-300 dark:border-neutral-600 rounded-lg font-semibold hover:translate-y-[-2px] transition"
                             >
-                                <MessageCircle size={18} />
-                                Let's Talk
+                                <OutlinedBtn text="Let's Talk" icon={<MessageCircleMore />} />
                             </a>
                         </div>
                     </div>

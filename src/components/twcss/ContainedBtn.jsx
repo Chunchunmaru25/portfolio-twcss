@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Download } from 'lucide-react';
 
-const ContainedBtn = () => {
+const ContainedBtn = ({ text, icon }) => {
   return (
     <StyledWrapper>
       <button className="button">
-        <span className="button-content">View My Work </span>
+        <span className="button-content flex items-center gap-2">{icon}{text}</span>
       </button>
     </StyledWrapper>
   );

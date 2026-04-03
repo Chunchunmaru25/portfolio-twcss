@@ -8,6 +8,8 @@ import About from "@/components/sections/About";
 import Stats from "@/components/sections/Stats";
 import Skills from "@/components/sections/Skills";
 import Resume from "@/components/sections/Resume";
+import TechStack from "@/components/sections/TechStack";
+import Portfolio from "@/components/sections/portfolio";
 
 const StyledWrapper = styled.div`
   --bg: ${({ theme }) => (theme === "dark" ? "#050505" : "#f0f0f0")};
@@ -106,6 +108,17 @@ function Welcome() {
             </div>
             <div className="bg-red-100">
                 <Resume />
+            </div>
+            <div>
+                <TechStack />
+            </div>
+            <div>
+                <div className="flex items-center gap-4">
+                    <span className="flex-1 h-[8px] w-[8px] border rounded-xl bg-gray-400"></span>
+                    <p className="whitespace-nowrap">FRONT END WEB DEVELOPMENT TOOLS</p>
+                    <span className="flex-1 h-[8px] w-[8px] border rounded-xl bg-gray-400"></span>
+                </div>
+                <Portfolio />
             </div>
         </>
     )

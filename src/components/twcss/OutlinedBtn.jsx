@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const OutlinedBtn = () => {
+const OutlinedBtn = ({ text, icon }) => {
   return (
     <StyledWrapper>
-      <button>Get In Touch</button>
+      <button className='items-center gap-2'>
+        {icon}
+        {text}
+      </button>
     </StyledWrapper>
   );
 }
@@ -13,10 +16,10 @@ const StyledWrapper = styled.div`
   button {
     --color: #560bad;
     font-family: inherit;
-    display: inline-block;
-    width: 8em;
+    display: flex;      
+    padding: 0 1.5rem;         
     height: 3rem;
-    line-height: 2.5em;
+    line-height: 3rem;        
     position: relative;
     overflow: hidden;
     border: 2px solid var(--color);
@@ -26,6 +29,8 @@ const StyledWrapper = styled.div`
     border-radius: 1.5rem;
     font-weight: 500;
     color: var(--color);
+    cursor: pointer;
+    white-space: nowrap;       
   }
 
   button:before {
@@ -36,16 +41,13 @@ const StyledWrapper = styled.div`
     height: 150px;
     width: 200px;
     border-radius: 50%;
+    top: 100%;
+    left: 100%;
+    transition: all 0.7s;
   }
 
   button:hover {
     color: #fff;
-  }
-
-  button:before {
-    top: 100%;
-    left: 100%;
-    transition: all 0.7s;
   }
 
   button:hover:before {
@@ -56,6 +58,7 @@ const StyledWrapper = styled.div`
   button:active:before {
     background: #3a0ca3;
     transition: background 0s;
-  }`;
+  }
+`;
 
 export default OutlinedBtn;

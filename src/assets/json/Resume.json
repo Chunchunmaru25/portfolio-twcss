@@ -1,0 +1,99 @@
+{
+    "Education": [
+        {
+            "program": "Tertiary - BS Computer Science",
+            "year": "2022 - 2026",
+            "branch": "Westbridge Institute of Technology Inc.",
+            "description": [
+                "Specialized in Web Development and Web UI/UX Graphics Design with a enough knowledge in Artificial Intelligence and Machine Learning."
+            ]
+        },
+        {
+            "program": "Senior High School - General Academic Strand",
+            "year": "2020 - 2022",
+            "branch": "Westbridge Institute of Technology Inc.",
+            "description": [
+                "Graduated with strong academic performance. Gathered enough foundation of basic programming, computer systems, and ICT-related projects."
+            ]
+        },
+        {
+            "program": "Junior High School - Industrial Arts / Bread And Pastry",
+            "year": "2016 - 2020",
+            "branch": "Gulod National High School",
+            "description": [
+                "Started in the Industrial Arts strand, gaining knowledge in technical-vocational skills, later shifted to Bread and Pastry with strong academic performance in cooking and food preparation."
+            ]
+        },
+        {
+            "program": "Primary",
+            "year": "2015 - 2016",
+            "branch": "Mamatid Elementary School",
+            "description": []
+        }
+    ],
+    "Personal": [
+        {
+            "program": "Part Time Service Crew | JFC Eton",
+            "year": "August 2025 - December 2025",
+            "branch": "Jollibee Foods Corporation",
+            "description": [
+                "Built a solid foundation in back-of-house operations by supporting daily kitchen workflows across grill, pantry, and fry stations."
+            ]
+        },
+        {
+            "program": "Part Time Service Crew | KFC Calamba",
+            "year": "August 2024 - January 2025",
+            "branch": "Kentucky Fried Chicken",
+            "description": [
+                "Learned a knowledge in cooking and prepare food properly."
+            ]
+        },
+        {
+            "program": "Intern Full Stack Developer",
+            "year": "June 2025 - July 2025",
+            "branch": "SupSoft Tech Inc.",
+            "description": [
+                "Designed user-friendly website interfaces with a focus on usability and visual appeal.",
+                "Used Tailwind, Bootstrap, HTML, CSS, SASS, CASS, and basic JavaScript to build responsive web pages.",
+                "Developed server-side logic to handle website functionality and database management.",
+                "Worked with databases to store and retrieve user data efficiently.",
+                "Tested backend code to ensure security and performance standards were met."
+            ]
+        },
+        {
+            "program": "Warehouse Staff | Batino Calamba",
+            "year": "August 2021 - December 2022",
+            "branch": "Shopee Logistics",
+            "description": [
+                "Coordinated dispatch and tracked shipments using MS Excel, ensuring timely delivery and accurate order records.",
+                "Handled the receiving, organizing, and storing of products efficiently.",
+                "Prepared orders for shipment by picking, packing, and labeling items accurately.",
+                "Developed server-side logic to handle website functionality and database management.",
+                "Worked closely with team members to meet daily shipping and receiving targets."
+            ]
+        }
+    ],
+    "Achievements": [
+        {
+            "program": "Lead Programmer – Capstone and Thesis Project",
+            "year": "3rd Year - 4th Year",
+            "description": [
+                "Led the development and programming of our team’s project serving as a full-stack developer, following the SDLC methodology."
+            ]
+        },
+        {
+            "program": "Privileged Identity Management Strategies for Prevention and Protection in the Digital Age",
+            "year": "FEBRUARY 22, 2024",
+            "description": [
+                "Organized by the College of Computer Studies at Westbridge Institute of Technology Inc."
+            ]
+        },
+        {
+            "program": "Computer Graphics with Image Editing",
+            "year": "OCT 2015 - JAN 2016",
+            "description": [
+                "Gained hands-on experience in basic graphic design principles and image editing techniques using industry-standard tools at Redlink Institute of Science and Technology."
+            ]
+        }
+    ]
+}
