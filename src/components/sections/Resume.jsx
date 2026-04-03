@@ -115,20 +115,20 @@ export default function Resume() {
                                     <h1>Soft Skills</h1>
                                     <hr />
                                     <div className="text-[14px]">
-                                        {softSkills.map((skill, index) => (
+                                        {/* {softSkills.map((skill, index) => (
                                             <RangeProgressWTooltip
                                                 key={index}
                                                 language={skill.name}
                                                 progress={skill.progress}
                                                 margin='my-4'
                                             />
-                                        ))}
+                                        ))} */}
                                     </div>
 
                                     <h1>Technical Skills</h1>
                                     <hr />
                                     <div className="text-[14px]">
-                                        {frontendSkills.map((skill, index) => (
+                                        {/* {frontendSkills.map((skill, index) => (
                                             <RangeProgressWTooltip
                                                 key={index}
                                                 language={skill.language}
@@ -143,7 +143,7 @@ export default function Resume() {
                                                 progress={skill.progress}
                                                 margin='my-4'
                                             />
-                                        ))}
+                                        ))} */}
                                     </div>
                                 </div>
                             </div>
@@ -171,7 +171,7 @@ export default function Resume() {
                                             <Building /> Westbridge Institute of Technology Inc.
                                         </div>
                                         <div>
-                                            Specialized in Web Development and Web UI/UX Graphics Design with a enough knowledge in Artificial Intelligence and Machine Learning.
+                                            Specialized in Web Development with a enough knowledge in Artificial Intelligence and Machine Learning.
                                         </div>
                                         asdasdsadsad
                                     </div>
