@@ -122,7 +122,7 @@ function Welcome() {
                     autoFill
                     pauseOnHover
                     pauseOnClick
-                    direction="left"
+                    direction="right"
                     gradient
                     gradientColor={path}
                 >
@@ -143,7 +143,7 @@ function Welcome() {
                     autoFill
                     pauseOnHover
                     pauseOnClick
-                    direction="right"
+                    direction="left"
                     gradient
                     gradientColor={path}
                 >
@@ -164,7 +164,7 @@ function Welcome() {
                     autoFill
                     pauseOnHover
                     pauseOnClick
-                    direction="left"
+                    direction="right"
                     gradient
                     gradientColor={path}
                 >
