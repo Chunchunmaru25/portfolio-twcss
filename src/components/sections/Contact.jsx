@@ -1,82 +1,144 @@
+import React, { useRef, useEffect, useState } from "react";
 import BorderGlow from "../BorderGlow";
 import SpotlightCard from '../SpotlightCard';
-import { Mail, Phone } from 'lucide-react'
+import { CircleUserRound, Mail, PenLine, Phone, ArrowRight } from 'lucide-react'
 import About from '../../assets/json/AboutMe.json'
+import GridTwo from "../twcss/GridTwo";
+import { facebookSvg, instagramSvg, tiktokSvg, githubSvg, linkinSvg } from '../path/svgPath'
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import Input from "../twcss/Input";
+import toast from "react-hot-toast";
+import Captcha from "../twcss/Recaptcha";
+import SubmitBtn from "../twcss/SubmitBtn";
+import emailjs from '@emailjs/browser';
+import ReCAPTCHA from "react-google-recaptcha";
 const Contact = function () {
     return (
         <>
-            <section id="about" className="py-20 bg-white dark:bg-background">
-                <div className="max-w-[80%] mx-auto px-4">
-                    <div className="grid lg:grid-cols-[40%_60%] gap-10">
-                        <div className="flex">
-                            <div className="relative overflow-hidden w-full flex flex-col">
-                                <h1>Connect With Me</h1>
-                                <hr />
-                                <div className="mt-10">
-                                    <BorderGlow
-                                        edgeSensitivity={100}
-                                        glowColor="40 80 80"
-                                        // backgroundColor="#060010"
-                                        borderRadius={28}
-                                        glowRadius={1}
-                                        glowIntensity={1}
-                                        coneSpread={100}
-                                        animated={false}
-                                        colors={['#000AFF', '#F714CB', '#A003FF']}
-                                    >
-                                        <div className="p-5 flex">
-                                            <SpotlightCard
-                                                className="bg-gradient-to-r from-indigo-500 to-purple-500 custom-spotlight-card flex items-center justify-center size-20"
-                                                spotlightColor="rgba(0, 229, 255, 0.2)"
-                                            >
-                                                <Mail className="text-white" />
-                                            </SpotlightCard>
-                                            <div className="px-5 flex flex-col justify-center items-start gap-4">
-                                                <h1 className="text-2xl">Send Email</h1>
-                                                <a href="mailto:clarenceduerme40@gmail.com">clarenceduerme40@gmail.com</a>
-                                            </div>
-                                        </div>
-                                    </BorderGlow>
+            <GridTwo maxWidth="90%" flexPortion={["1fr", "2fr"]}>
+                {/* LEFT */}
+                <div>
+                    <div className="flex flex-col gap-3">
+                        <BorderGlow
+                            edgeSensitivity={30}
+                            glowColor="40 80 80"
+                            backgroundColor="#FFFFF"
+                            borderRadius={28}
+                            glowRadius={40}
+                            glowIntensity={1}
+                            coneSpread={25}
+                            animated={false}
+                            colors={['#c084fc', '#f472b6', '#38bdf8']}
+                        >
+                            <div className="flex" style={{ padding: '1em' }}>
+                                <SpotlightCard
+                                    className="w-20 h-20 flex justify-center items-center border-black dark:border-white"
+                                    spotlightColor="rgba(0, 229, 255, 0.2)"
+                                >
+                                    <Mail className="w-10 h-10 text-black dark:text-white flex-shrink-0 flex" />
+                                </SpotlightCard>
+                                <div className="flex flex-col justify-around px-4 py-1">
+                                    <b className="text-xl">Send Email</b>
+                                    <span className="italic">{About.email}</span>
                                 </div>
-                                <div className="mt-10">
-                                    <BorderGlow
-                                        edgeSensitivity={100}
-                                        glowColor="40 80 80"
-                                        // backgroundColor="#060010"
-                                        borderRadius={28}
-                                        glowRadius={1}
-                                        glowIntensity={1}
-                                        coneSpread={100}
-                                        animated={false}
-                                        colors={['#000AFF', '#F714CB', '#A003FF']}
-                                    >
-                                        <div className="p-5 flex">
-                                            <SpotlightCard
-                                                className="bg-gradient-to-r from-indigo-500 to-purple-500 custom-spotlight-card flex items-center justify-center size-20"
-                                                spotlightColor="rgba(0, 229, 255, 0.2)"
-                                            >
-                                                <Phone className="text-white" />
-                                            </SpotlightCard>
-                                            <div className="px-5 flex flex-col justify-center items-start gap-4">
-                                                <h1 className="text-2xl">Call Direct</h1>
-                                                <a href={`tel:${About.phone1}`}>{About.phone1Format}</a>
-                                                <a href={`tel:${About.phone2}`}>{About.phone2Format}</a>
-                                            </div>
-                                        </div>
-                                    </BorderGlow>
+                            </div>
+                        </BorderGlow>
+                        <BorderGlow
+                            edgeSensitivity={30}
+                            glowColor="40 80 80"
+                            backgroundColor="#FFFFF"
+                            borderRadius={28}
+                            glowRadius={40}
+                            glowIntensity={1}
+                            coneSpread={25}
+                            animated={false}
+                            colors={['#c084fc', '#f472b6', '#38bdf8']}
+                        >
+                            <div className="flex" style={{ padding: '1em' }}>
+                                <SpotlightCard
+                                    className="w-20 h-20 flex justify-center items-center border-black dark:border-white"
+                                    spotlightColor="rgba(0, 229, 255, 0.2)"
+                                >
+                                    <Phone className="w-10 h-10 text-black dark:text-white flex-shrink-0 flex" />
+                                </SpotlightCard>
+                                <div className="flex flex-col justify-around px-4 py-1">
+                                    <b className="text-xl">Direct Contact</b>
+                                    <span className="italic">{About.phone1Format}</span>
+                                    <span className="italic">{About.phone2Format}</span>
                                 </div>
-
                             </div>
-                        </div>
-
-                        <div className="flex">
-                            <div className="relative bg-gradient-to-br from-white to-gray-100 dark:from-neutral-800 dark:to-neutral-900 border border-gray-200
-                             dark:border-neutral-700 rounded-3xl p-8 text-center shadow-xl overflow-hidden w-full flex flex-col">
+                        </BorderGlow>
+                        <BorderGlow
+                            edgeSensitivity={30}
+                            glowColor="40 80 80"
+                            backgroundColor="#FFFFF"
+                            borderRadius={28}
+                            glowRadius={40}
+                            glowIntensity={1}
+                            coneSpread={25}
+                            animated={false}
+                            colors={['#c084fc', '#f472b6', '#38bdf8']}
+                        >
+                            <div className="flex justify-center items-center" style={{ padding: '1em' }}>
+                                <div className="flex flex-col justify-center items-center gap-2 px-4 py-1">
+                                    <b className="text-md">Follow My Journey</b>
+                                    <div className="flex gap-2 justify-around">
+                                        <div>
+                                            <a href="https://www.facebook.com/clarence.duerme40" target="_blank">
+                                                <Avatar>
+                                                    <AvatarImage src={facebookSvg} />
+                                                    <AvatarFallback>facebookSvg</AvatarFallback>
+                                                </Avatar>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <a href="https://www.instagram.com/moriii__pawsa" target="_blank">
+                                                <Avatar>
+                                                    <AvatarImage src={instagramSvg} />
+                                                    <AvatarFallback>instagramSvg</AvatarFallback>
+                                                </Avatar>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <a href="https://www.tiktok.com/@sh1raase" target="_blank">
+                                                <Avatar>
+                                                    <AvatarImage src={tiktokSvg} />
+                                                    <AvatarFallback>tiktokSvg</AvatarFallback>
+                                                </Avatar>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <a href="https://github.com/Chunchunmaru25" target="_blank">
+                                                <Avatar>
+                                                    <AvatarImage src={githubSvg} />
+                                                    <AvatarFallback>githubSvg</AvatarFallback>
+                                                </Avatar>
+                                            </a>
+                                        </div>
+                                        <div>
+                                            <a href="https://www.linkedin.com/in/clarence-duerme-2232b4374/" target="_blank">
+                                                <Avatar>
+                                                    <AvatarImage src={linkinSvg} />
+                                                    <AvatarFallback>linkinSvg</AvatarFallback>
+                                                </Avatar>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        </BorderGlow>
                     </div>
                 </div>
-            </section >
+
+                {/* RIGHT */}
+                <div className="flex flex-col text-center">
+                    <div className="flex flex-col">
+                        <b className="text-2xl tracking-[5px] px-10 py-3">Send A Message</b>
+                        <span>Whether you're looking to start a project, ask a question, or simply say hello, I'm just a message away. Let's build something great together.</span>
+                    </div>
+                    <Input />
+                </div>
+            </GridTwo >
         </>
     )
 }

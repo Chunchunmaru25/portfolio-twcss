@@ -30,7 +30,7 @@ const SpotlightCard = ({ children, className = '', spotlightColor = 'rgba(255, 2
   const handleMouseLeave = () => {
     setOpacity(0);
   };
-  
+
   const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const mode = isDark ? 'dark' : 'light';
   const theme = localStorage.getItem('theme') || mode;
@@ -63,6 +63,6 @@ export default SpotlightCard;
 // USAGE
 
 // import SpotlightCard from './SpotlightCard';
-  
-// <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
-// </SpotlightCard>
+
+{/* <SpotlightCard className="custom-spotlight-card" spotlightColor="rgba(0, 229, 255, 0.2)">
+</SpotlightCard> */}

@@ -1,99 +1,42 @@
 import Header from "@/components/sections/Header";
 import Hero from "@/components/sections/Hero";
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import ScrollDown from "@/components/twcss/ScrollDown";
-import Lanyard from "@/components/reactbits/Lanyard";
 import About from "@/components/sections/About";
 import Stats from "@/components/sections/Stats";
 import Skills from "@/components/sections/Skills";
 import Resume from "@/components/sections/Resume";
-import TechStack from "@/components/sections/TechStack";
 import Portfolio from "@/components/sections/portfolio";
 import Faqs from "@/components/sections/Faqs";
 import Contact from "@/components/sections/Contact";
+import Card from "../components/twcss/PrajapatiCard";
+import techData from "../assets/json/TechData";
+import GridBackground from "@/components/twcss/GridBackground";
+import TitleLine from "@/components/twcss/TitleLine";
+import MarqueeImport from "react-fast-marquee";
 
-const StyledWrapper = styled.div`
-  --bg: ${({ theme }) => (theme === "dark" ? "#050505" : "#f0f0f0")};
-  --vignette: ${({ theme }) => (theme === "dark" ? "#000" : "#ccc")};
-  --cyan: ${({ theme }) => (theme === "dark" ? "3, 233, 244" : "0, 100, 255")};
-  --magenta: ${({ theme }) => (theme === "dark" ? "217, 3, 244" : "255, 50, 200")};
-
-  .cyber-pattern {
-    width: 100%;
-    height: 100%;
-    background-color: var(--bg);
-    background-image: 
-      radial-gradient(circle at center, transparent 30%, var(--vignette) 90%),
-      linear-gradient(rgba(var(--cyan), 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(var(--cyan), 0.1) 1px, transparent 1px),
-      linear-gradient(rgba(var(--magenta), 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(var(--magenta), 0.05) 1px, transparent 1px);
-    background-size: 100% 100%, 60px 60px, 60px 60px, 20px 20px, 20px 20px;
-    animation: cyber-move 10s linear infinite;
-  }
-`;
+const Marquee = MarqueeImport.default;
 
 function Welcome() {
-    const [isDarkMode, setIsDarkMode] = useState(false);
-    useEffect(() => {
-        const updateTheme = () => {
-            const theme = localStorage.getItem('theme');
-            setIsDarkMode(
-                theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
-            );
-        };
-        updateTheme();
-        window.addEventListener('storage', updateTheme);
-        const observer = new MutationObserver(() => {
-            setIsDarkMode(document.documentElement.classList.contains('dark'));
-        });
-        observer.observe(document.documentElement, {
-            attributes: true,
-            attributeFilter: ['class']
-        });
-        return () => {
-            window.removeEventListener('storage', updateTheme);
-            observer.disconnect();
-        };
-    }, []);
+    const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const mode = isDark ? "dark" : "light";
+    const theme = localStorage.getItem("theme") || mode;
+    const path = theme === "dark" ? "black" : "white";
 
-
-    const [showScroll, setShowScroll] = useState(true);
-    const [fadeOut, setFadeOut] = useState(false);
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 100 && showScroll) {
-                setFadeOut(true);
-                setTimeout(() => setShowScroll(false), 500);
-            } else if (window.scrollY <= 100 && !showScroll) {
-                setShowScroll(true);
-                setFadeOut(false);
-            }
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, [showScroll]);
-
+    const frontend = techData.frontend;
+    const backend = techData.backend;
+    const database_server = techData.database_server;
+    const tools = techData.tools;
+    const template_design = techData.template_design;
     return (
         <>
 
             <Header />
-            <StyledWrapper className="relative w-full min-h-screen overflow-hidden" theme={isDarkMode ? "dark" : "light"}>
-                <div className="cyber-pattern absolute inset-0 z-0" />
-                <div className="relative z-10">
-                    <Hero />
-                    <div className="bg-transparent absolute top-0 left-0 pointer-events-auto z-[99999]">
-                        <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
-                    </div>
-                    {showScroll && (
-                        <div className={`transition-opacity duration-500 absolute bottom-0 left-1/2 -translate-x-1/2 ${fadeOut ? "opacity-0" : "opacity-100"}`}>
-                            <ScrollDown />
-                        </div>
-                    )}
-                </div>
-            </StyledWrapper>
+            {/* HERO */}
+            <div className="relative">
+                <GridBackground className="absolute inset-0 -z-10" />
+
+                <Hero />
+            </div>
 
             {/* about me */}
             <div id="about" className="bg-background dark:bg-background" >
@@ -122,56 +65,126 @@ function Welcome() {
                 <Stats />
             </div>
             <div className="mt-10">
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-                        <div className="flex items-center gap-4">
-                            <span className="flex-1 h-[8px] w-[8px] border rounded-xl bg-gray-400"></span>
-                            <p className="whitespace-nowrap">Skills</p>
-                            <span className="flex-1 h-[8px] w-[8px] border rounded-xl bg-gray-400"></span>
-                        </div>
-                    </h2>
-                    <p className="text-gray-600 dark:text-gray-400 mt-3 max-w-xl mx-auto">
-                        Experienced in building academic responsive and dynamic web applications, with a passion for learning and improving my craft.
-                    </p>
-                </div>
+                <TitleLine title="Skills" subtitle="Experienced in building academic responsive and dynamic web applications, with a passion for learning and improving my craft." />
                 <Skills />
-            </div>
+            </div >
             <div>
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-                        <div className="flex items-center gap-4">
-                            <span className="flex-1 h-[8px] w-[8px] border rounded-xl bg-gray-400"></span>
-                            <p className="whitespace-nowrap">Resume</p>
-                            <span className="flex-1 h-[8px] w-[8px] border rounded-xl bg-gray-400"></span>
-                        </div>
-                    </h2>
-                    <p className="text-gray-600 dark:text-gray-400 mt-3 max-w-xl mx-auto">
-                        A summary of my education, experience, and technical skills, showcasing my journey and growth as a developer.
-                    </p>
-                </div>
+                <TitleLine title="Resume" subtitle="A summary of my education, experience, and technical skills, showcasing my journey and growth as a developer." />
                 <Resume />
             </div>
 
             {/* TECH STACK */}
             <div id='techstack'>
-                <TechStack />
+                <TitleLine title="FRONT END WEB DEVELOPMENT TOOLS" subtitle="Essential tools I use to build modern, responsive, and beautiful web interfaces." />
+                <Marquee
+                    autoFill
+                    pauseOnHover
+                    pauseOnClick
+                    direction="right"
+                    gradient
+                    gradientColor={path}
+                >
+                    {frontend.map((card, index) => (
+                        <div key={index} className="mx-4">
+                            <Card
+                                style="size-[200px] my-10"
+                                imgSize="size-[100px]"
+                                title={card.stack}
+                                svg={card.path}
+                                sideColor={card.bg_color}
+                            />
+                        </div>
+                    ))}
+                </Marquee>
+                <TitleLine title="BACK END WEB DEVELOPMENT TOOLS" subtitle="Technologies and tools I use to build secure, scalable, and fast web applications." />
+                <Marquee
+                    autoFill
+                    pauseOnHover
+                    pauseOnClick
+                    direction="left"
+                    gradient
+                    gradientColor={path}
+                >
+                    {backend.map((card, index) => (
+                        <div key={index} className="mx-4">
+                            <Card
+                                style="size-[200px] my-10"
+                                imgSize="size-[100px]"
+                                title={card.stack}
+                                svg={card.path}
+                                sideColor={card.bg_color}
+                            />
+                        </div>
+                    ))}
+                </Marquee>
+                <TitleLine title="DATABASE AND SERVERS" subtitle="Database management systems and server technologies that support scalable applications." />
+                <Marquee
+                    autoFill
+                    pauseOnHover
+                    pauseOnClick
+                    direction="left"
+                    gradient
+                    gradientColor={path}
+                >
+                    {database_server.map((card, index) => (
+                        <div key={index} className="mx-4">
+                            <Card
+                                style="size-[200px] my-10"
+                                imgSize="size-[100px]"
+                                title={card.stack}
+                                svg={card.path}
+                                sideColor={card.bg_color}
+                            />
+                        </div>
+                    ))}
+                </Marquee>
+                <TitleLine title="DEVELOPMENT TOOLS" subtitle="Productivity tools, version control, and IDEs that help me code efficiently." />
+                <Marquee
+                    autoFill
+                    pauseOnHover
+                    pauseOnClick
+                    direction="left"
+                    gradient
+                    gradientColor={path}
+                >
+                    {tools.map((card, index) => (
+                        <div key={index} className="mx-4">
+                            <Card
+                                style="size-[200px] my-10"
+                                imgSize="size-[100px]"
+                                title={card.stack}
+                                svg={card.path}
+                                sideColor={card.bg_color}
+                            />
+                        </div>
+                    ))}
+                </Marquee>
+                <TitleLine title="TEMPLATE AND DESIGN TOOLS" subtitle="Design and prototyping tools that I use for UI/UX and creative workflows." />
+                <Marquee
+                    autoFill
+                    pauseOnHover
+                    pauseOnClick
+                    direction="left"
+                    gradient
+                    gradientColor={path}
+                >
+                    {template_design.map((card, index) => (
+                        <div key={index} className="mx-4">
+                            <Card
+                                style="size-[200px] my-10"
+                                imgSize="size-[100px]"
+                                title={card.stack}
+                                svg={card.path}
+                                sideColor={card.bg_color}
+                            />
+                        </div>
+                    ))}
+                </Marquee>
             </div>
 
             {/* PORTFOLIO */}
-            <div>
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-                        <div className="flex items-center gap-4">
-                            <span className="flex-1 h-[8px] w-[8px] border rounded-xl bg-gray-400"></span>
-                            <p className="whitespace-nowrap">Resume</p>
-                            <span className="flex-1 h-[8px] w-[8px] border rounded-xl bg-gray-400"></span>
-                        </div>
-                    </h2>
-                    <p className="text-gray-600 dark:text-gray-400 mt-3 max-w-xl mx-auto">
-                        A summary of my education, experience, and technical skills, showcasing my journey and growth as a developer.
-                    </p>
-                </div>
-                {/* <Portfolio /> */}
+            <div className="h-screen">
+                <TitleLine title="Portfolio" subtitle="Check My Portfolio" />
                 Fetching . . .
             </div>
 
@@ -181,18 +194,7 @@ function Welcome() {
             </div>
 
             <div>
-                <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold text-gray-900 dark:text-white">
-                        <div className="flex items-center gap-4">
-                            <span className="flex-1 h-[8px] w-[8px] border rounded-xl bg-gray-400"></span>
-                            <p className="whitespace-nowrap">Contact</p>
-                            <span className="flex-1 h-[8px] w-[8px] border rounded-xl bg-gray-400"></span>
-                        </div>
-                    </h2>
-                    <p className="text-gray-600 dark:text-gray-400 mt-3 max-w-xl mx-auto">
-                        Have a project in mind, a question, or just want to connect? I’m always open to discussing new opportunities, creative ideas, or collaborations—feel free to reach out anytime.
-                    </p>
-                </div>
+                <TitleLine title="Contact" subtitle="Have a project in mind, a question, or just want to connect? I’m always open to discussing new opportunities, creative ideas, or collaborations—feel free to reach out anytime." />
                 <Contact />
             </div>
         </>

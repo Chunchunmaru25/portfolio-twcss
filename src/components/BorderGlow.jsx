@@ -68,8 +68,8 @@ const BorderGlow = ({
   const mode = isDark ? 'dark' : 'light';
   const theme = localStorage.getItem('theme') || mode;
   const path = theme === 'dark'
-    ? '#171414'
-    : '#E3DEDE';
+    ? '#000000'
+    : '#FFFFFF';
 
   const backgroundColor = path;
   const cardRef = useRef(null);
@@ -162,12 +162,14 @@ const BorderGlow = ({
       onPointerMove={handlePointerMove}
       onPointerEnter={() => setIsHovered(true)}
       onPointerLeave={() => setIsHovered(false)}
-      className={`relative grid isolate border border-white/15 ${className}`}
+      className={`relative grid isolate border border-white/15 ${className} bg-[#FFFFFF] dark:bg-[#000000] 
+      shadow-[inset_0px_0px_23px_1px_#D6D6D6] 
+      dark:shadow-[inset_0px_0px_23px_1px_#2E2C2C]`}
       style={{
-        background: backgroundColor,
+        // background: backgroundColor,
         borderRadius: `${borderRadius}px`,
         transform: 'translate3d(0, 0, 0.01px)',
-        // boxShadow: 'rgba(0,0,0,0.1) 0 1px 2px, rgba(0,0,0,0.1) 0 2px 4px, rgba(0,0,0,0.1) 0 4px 8px, rgba(0,0,0,0.1) 0 8px 16px, rgba(0,0,0,0.1) 0 16px 32px, rgba(0,0,0,0.1) 0 32px 64px',
+        // boxShadow: boxShadow,
       }}>
       {/* mesh gradient border */}
       <div

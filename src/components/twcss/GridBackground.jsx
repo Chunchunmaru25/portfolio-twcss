@@ -1,61 +1,57 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useEffect, useRef, useState } from 'react';
+const GridBackground = (style) => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  useEffect(() => {
+    const updateTheme = () => {
+      const theme = localStorage.getItem('theme');
+      setIsDarkMode(
+        theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      );
+    };
+    updateTheme();
+    window.addEventListener('storage', updateTheme);
+    const observer = new MutationObserver(() => {
+      setIsDarkMode(document.documentElement.classList.contains('dark'));
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+    return () => {
+      window.removeEventListener('storage', updateTheme);
+      observer.disconnect();
+    };
+  }, []);
+  return (
+    <StyledWrapper theme={isDarkMode ? "dark" : "light"}>
+      <div className={`cyber-pattern absolute inset-0 -z-10 ${style}`} />
+      <div className="relative z-10">
 
-const GridBackground = () => {
-    return (
-        <StyledWrapper>
-            <div className="cyber-pattern" />
-        </StyledWrapper>
-    );
+      </div>
+    </StyledWrapper>
+  );
 }
 
 const StyledWrapper = styled.div`
+  --bg: ${({ theme }) => (theme === "dark" ? "#050505" : "#f0f0f0")};
+  --vignette: ${({ theme }) => (theme === "dark" ? "#000" : "#ccc")};
+  --cyan: ${({ theme }) => (theme === "dark" ? "3, 233, 244" : "0, 100, 255")};
+  --magenta: ${({ theme }) => (theme === "dark" ? "217, 3, 244" : "255, 50, 200")};
+
   .cyber-pattern {
     width: 100%;
     height: 100%;
-    background-color: #050505; /* Fond presque noir */
-
-    /* C'est ici que la magie opère. On empile plusieurs couches : */
+    background-color: var(--bg);
     background-image: 
-      /* 1. La Vignette (Ombre sur les bords pour l'effet cinéma) */
-      radial-gradient(circle at center, transparent 30%, #000 90%),
-      /* 2. GRILLE PRINCIPALE (Cyan - Grande) - Lignes Verticales & Horizontales */
-        linear-gradient(rgba(3, 233, 244, 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(3, 233, 244, 0.1) 1px, transparent 1px),
-      /* 3. GRILLE SECONDAIRE (Magenta - Petite) - Lignes Verticales & Horizontales */
-        linear-gradient(rgba(217, 3, 244, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(217, 3, 244, 0.05) 1px, transparent 1px);
-
-    /* On définit la taille des grilles */
-    background-size:
-      100% 100%,
-      /* Vignette */ 60px 60px,
-      /* Grande grille Cyan (60px) */ 60px 60px,
-      20px 20px,
-      /* Petite grille Magenta (20px) */ 20px 20px;
-
-    /* On lance l'animation */
+      radial-gradient(circle at center, transparent 30%, var(--vignette) 90%),
+      linear-gradient(rgba(var(--cyan), 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(var(--cyan), 0.1) 1px, transparent 1px),
+      linear-gradient(rgba(var(--magenta), 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(var(--magenta), 0.05) 1px, transparent 1px);
+    background-size: 100% 100%, 60px 60px, 60px 60px, 20px 20px, 20px 20px;
     animation: cyber-move 10s linear infinite;
   }
-
-  /* L'animation qui fait bouger les grilles */
-  @keyframes cyber-move {
-    0% {
-      background-position:
-        0 0,
-        /* Vignette (ne bouge pas) */ 0 0,
-        0 0,
-        /* Grille Cyan (Départ) */ 0 0,
-        0 0; /* Grille Magenta (Départ) */
-    }
-    100% {
-      background-position:
-        0 0,
-        /* Vignette */ 60px 60px,
-        60px 60px,
-        /* Grille Cyan bouge de 60px (1 carreau) */ 40px 40px,
-        40px 40px; /* Grille Magenta bouge de 40px (plus vite/décalé) */
-    }
-  }`;
-
+`;
 export default GridBackground;

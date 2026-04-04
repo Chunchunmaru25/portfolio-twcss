@@ -5,6 +5,9 @@ import delivered from '../../assets/svg/delivered.svg'
 import projects from '../../assets/svg/projects.svg'
 
 import linkinSvg from "../../assets/svg/linkin.svg";
+import facebookSvg from "../../assets/svg/facebook.svg";
+import instagramSvg from "../../assets/svg/instagram.svg";
+import tiktokSvg from "../../assets/svg/tiktok.svg";
 
 // Frontend
 import htmlSvg from "../../assets/svg/techstack/html.svg"
@@ -51,7 +54,7 @@ export {
     // OTHERS
     Happy, HoursOfSupport, delivered, projects,
 
-    linkinSvg,
+    linkinSvg, facebookSvg, instagramSvg, tiktokSvg,
     // TECH STACK
 
     // Frontend

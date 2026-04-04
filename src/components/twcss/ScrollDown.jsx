@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { useState, useEffect } from 'react';
 const ScrollDown = () => {
   // const setScrollDown = () => {
   //   window.scrollBy({
@@ -16,25 +16,48 @@ const ScrollDown = () => {
     });
   };
 
+  const [showScroll, setShowScroll] = useState(true);
+  const [fadeOut, setFadeOut] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100 && showScroll) {
+        setFadeOut(true);
+        setTimeout(() => setShowScroll(false), 500);
+      } else if (window.scrollY <= 100 && !showScroll) {
+        setShowScroll(true);
+        setFadeOut(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [showScroll]);
 
   return (
-    <StyledWrapper>
-      <div className="main__action" onClick={() => { setScrollDown() }}>
-        <a className="main__scroll" href="#">
-          <div className="main__scroll-box">
-            <svg viewBox="0 0 24 24" className='fill-black dark:fill-white'>
-              <path d="M0 0h24v24H0z" fill="none" />
-              <path
-                d="M11.9997 13.1716L7.04996 8.22186L5.63574 9.63607L11.9997 16L18.3637 9.63607L16.9495 8.22186L11.9997 13.1716Z"
-              />
-            </svg>
-          </div>
-          <span className="main__scroll-text text-black dark:text-white whitespace-nowrap">
-            Scroll Down
-          </span>
-        </a>
-      </div>
-    </StyledWrapper>
+    <>
+      {showScroll && (
+        <div className={`transition-opacity duration-500 absolute bottom-0 left-1/2 -translate-x-1/2 ${fadeOut ? "opacity-0" : "opacity-100"}`}>
+          <StyledWrapper>
+            <div className="main__action" onClick={() => { setScrollDown() }}>
+              <a className="main__scroll" href="#">
+                <div className="main__scroll-box">
+                  <svg viewBox="0 0 24 24" className='fill-black dark:fill-white'>
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path
+                      d="M11.9997 13.1716L7.04996 8.22186L5.63574 9.63607L11.9997 16L18.3637 9.63607L16.9495 8.22186L11.9997 13.1716Z"
+                    />
+                  </svg>
+                </div>
+                <span className="main__scroll-text text-black dark:text-white whitespace-nowrap">
+                  Scroll Down
+                </span>
+              </a>
+            </div>
+          </StyledWrapper>
+        </div>
+      )}
+    </>
+
   );
 };
 
