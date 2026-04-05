@@ -161,20 +161,20 @@
 </head>
 
 <body>
-  <!-- <div id="loading">
-      <div id="loading-content">
-        <div class="terminal-wrapper">
-          <div class="terminal-header">
-            <span class="dot red-dot"></span>
-            <span class="dot yellow-dot"></span>
-            <span class="dot green-dot"></span>
-          </div>
-          <div class="terminal" id="terminal"></div>
+  <div id="loading">
+    <div id="loading-content">
+      <div class="terminal-wrapper">
+        <div class="terminal-header">
+          <span class="dot red-dot"></span>
+          <span class="dot yellow-dot"></span>
+          <span class="dot green-dot"></span>
         </div>
+        <div class="terminal" id="terminal"></div>
       </div>
-    </div> -->
-  <!-- <div id="root" class="opacity hidden"></div> -->
-  <div id="root"></div>
+    </div>
+  </div>
+  <div id="root" class="opacity hidden"></div>
+  <!-- <div id="root"></div> -->
   <script type="module" src="/src/main.jsx"></script>
   <script>
     if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -184,7 +184,7 @@
     }
   </script>
 
-  <!--<script>
+  <script>
     const loading = document.getElementById('loading');
     const terminal = document.getElementById("terminal");
     const root = document.getElementById('root')
@@ -294,7 +294,7 @@
       isLoaded = true;
       checkReady();
     });
-  </script> -->
+  </script>
 </body>
 
 </html>

@@ -51,7 +51,7 @@ function Hero() {
 
     const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const mode = isDark ? 'dark' : 'light';
-    const theme = localStorage.getItem('theme') || mode;
+    const theme = localStorage.getItem('theme') || mode || 'light';
     const path = theme === 'dark'
         ? togaTransShadeImg
         : togaTransImg;
