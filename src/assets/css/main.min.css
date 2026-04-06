@@ -1,0 +1,150 @@
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#loading {
+    background-color: #1e1e2f;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 9998;
+    display: flex;
+    color: #c5c6c7;
+    font-family: monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    cursor: progress;
+}
+
+#loading-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 768px) {
+    #loading-content {
+    transform: translate(-50%, -50%) scale(0.7);
+    }
+}
+
+@media (max-width: 480px) {
+    #loading-content {
+    transform: translate(-50%, -50%) scale(0.5);
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.opacity {
+    opacity: 0;
+}
+
+.terminal-wrapper {
+    background-color: #0f0f1f;
+    border-radius: 10px;
+    width: 600px;
+    max-width: 90%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.terminal-wrapper :hover {
+    cursor: progress;
+}
+
+.terminal-header {
+    background-color: #1a1a2e;
+    padding: 8px 12px;
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.red-dot {
+    background-color: #ff5f56;
+}
+
+.yellow-dot {
+    background-color: #ffbd2e;
+}
+
+.green-dot {
+    background-color: #27c93f;
+}
+
+.terminal {
+    padding: 20px;
+    min-height: 300px;
+    overflow-y: auto;
+}
+
+.line {
+    display: block;
+    white-space: pre-wrap;
+    margin: 4px 0;
+}
+
+.green {
+    color: #00ff6a;
+}
+
+.blue {
+    color: #00c0ff;
+}
+
+.muted {
+    color: #aaaaaa;
+}
+
+.cursor {
+    display: inline-block;
+    width: 8px;
+    background-color: #c5c6c7;
+    margin-left: 2px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    50%,
+    100% {
+    opacity: 1;
+    }
+
+    25%,
+    75% {
+    opacity: 0;
+    }
+}
+
+@keyframes flick {
+
+    0%,
+    50%,
+    100% {
+    opacity: 1;
+    }
+
+    25%,
+    75% {
+    opacity: 0;
+    }
+}

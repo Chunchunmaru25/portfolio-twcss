@@ -44,6 +44,7 @@ import gitSvg from "../../assets/svg/techstack/git.svg"
 import githubSvg from "../../assets/svg/techstack/github.svg"
 import viteSvg from "../../assets/svg/techstack/vite.svg"
 import npmSvg from "../../assets/svg/techstack/npm.svg"
+import postmanSvg from "../../assets/svg/techstack/postman.svg"
 
 // Templates / Design
 import figmaSvg from "../../assets/svg/techstack/figma.svg"
@@ -68,7 +69,7 @@ export {
     mysqlSvg, postgresqlSvg, mongodbSvg, sqlliteSvg, xamppSvg,
 
     // Tools
-    vscodeSvg, gitSvg, githubSvg, viteSvg, npmSvg,
+    vscodeSvg, gitSvg, githubSvg, viteSvg, npmSvg, postmanSvg,
 
     // Templates / Design
     figmaSvg, canvaSvg, codepenSvg,

@@ -4,11 +4,11 @@ import {
     CheckCircle, BriefcaseBusiness, MessageCircleMore
 } from "lucide-react";
 import Toga from '../../assets/images/toga.jpg'
-import CV from '../../../public/pdf/CV.pdf'
 import ContainedBtn from "@/components/twcss/ContainedBtn";
 import OutlinedBtn from "@/components/twcss/OutlinedBtn";
 
 const About = () => {
+    const CV = '/pdf/CV.pdf';
     return (
 
         <>

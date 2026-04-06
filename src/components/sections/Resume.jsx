@@ -6,7 +6,6 @@ import {
 } from 'lucide-react';
 import ContainedBtn from "@/components/twcss/ContainedBtn";
 import OutlinedBtn from "@/components/twcss/OutlinedBtn";
-import CV from '../../../public/pdf/CV.pdf'
 
 // json
 import Skill from '../../assets/json/Skills.json';
@@ -42,7 +41,7 @@ export default function Resume() {
     const Education = ResumeJson.Education;
     const Personal = ResumeJson.Personal;
     const Achievements = ResumeJson.Achievements
-
+    const CV = '/pdf/CV.pdf';
     return (
         <>
             <section id="about" className="py-20 bg-white dark:bg-background">

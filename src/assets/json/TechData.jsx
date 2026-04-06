@@ -4,7 +4,7 @@ import {
     phpSvg, laravelSvg, pythonSvg, nodejsSvg, expressjsSvg, composerSvg,
     mysqlSvg, postgresqlSvg, mongodbSvg, sqlliteSvg, xamppSvg,
     vscodeSvg, gitSvg, githubSvg, viteSvg, npmSvg,
-    figmaSvg, canvaSvg, codepenSvg
+    figmaSvg, canvaSvg, codepenSvg, postmanSvg
 } from "../../components/path/svgPath";
 
 import {
@@ -49,7 +49,8 @@ const techData = {
         { stack: "Git", path: gitSvg, bg_color: "#F05032" },
         { stack: "GitHub", path: githubSvg, bg_color: "#181717" },
         { stack: "Vite", path: viteSvg, bg_color: "#646CFF" },
-        { stack: "NPM", path: npmSvg, bg_color: "#CB3837" }
+        { stack: "NPM", path: npmSvg, bg_color: "#CB3837" },
+        { stack: "Postman", path: postmanSvg, bg_color: "#EF5B25" }
     ],
     template_design: [
         { stack: "Figma", path: figmaSvg, bg_color: "#F24E1E" },
