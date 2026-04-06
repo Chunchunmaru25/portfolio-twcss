@@ -185,7 +185,7 @@ function Welcome() {
             {/* PORTFOLIO */}
             <div className="h-screen">
                 <TitleLine title="Portfolio" subtitle="Check My Portfolio" />
-                Fetching . . .
+                <Portfolio />
             </div>
 
             {/* ACCORDION */}
