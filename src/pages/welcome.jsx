@@ -183,7 +183,7 @@ function Welcome() {
             </div>
 
             {/* PORTFOLIO */}
-            <div className="h-screen">
+            <div className="h-full">
                 <TitleLine title="Portfolio" subtitle="Check My Portfolio" />
                 <Portfolio />
             </div>
