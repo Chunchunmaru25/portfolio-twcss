@@ -5,7 +5,6 @@ Welcome to my personal portfolio! This project showcases my skills, projects, an
 ## 🛠️ Built With
 
 - **React.js** – For building interactive UI components  
-- **Node.js** – Backend and environment setup  
 - **NPM** – Dependency management  
 - **Tailwind CSS** – Utility-first CSS framework for styling  
 - **UiVerse** – UI component library  
@@ -15,12 +14,6 @@ Welcome to my personal portfolio! This project showcases my skills, projects, an
 - **SVGRepo** – Vector icons and illustrations  
 - **TailwindFlex** – Flexible Tailwind layouts  
 
-## ⚡ Getting Started
+## Deployment
 
-### Prerequisites
-
-Make sure you have **Node.js** and **NPM** installed:
-
-```bash
-node -v
-npm -v
+Check my deployed portfolio by [Clicking Here!](https://clarence-duerme-portfolio-ph.vercel.app/)
