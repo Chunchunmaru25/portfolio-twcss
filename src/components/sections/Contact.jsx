@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React from "react";
 import BorderGlow from "../BorderGlow";
 import SpotlightCard from '../SpotlightCard';
 import { CircleUserRound, Mail, PenLine, Phone, ArrowRight } from 'lucide-react'
@@ -7,10 +7,8 @@ import GridTwo from "../twcss/GridTwo";
 import { facebookSvg, instagramSvg, tiktokSvg, githubSvg, linkinSvg } from '../path/svgPath'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import Input from "../twcss/Input";
-import toast from "react-hot-toast";
 import Captcha from "../twcss/Recaptcha";
 import SubmitBtn from "../twcss/SubmitBtn";
-import emailjs from '@emailjs/browser';
 import ReCAPTCHA from "react-google-recaptcha";
 const Contact = function () {
     return (

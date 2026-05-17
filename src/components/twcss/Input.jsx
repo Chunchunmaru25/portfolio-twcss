@@ -1,53 +1,74 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { CircleUserRound, Mail, PenLine, Phone } from 'lucide-react'
-import { useState } from 'react';
-import emailjs from 'emailjs-com';
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
-const Input = () => {
-  const { executeRecaptcha } = useGoogleReCaptcha();
+import {
+  CircleUserRound,
+  Mail,
+  PenLine,
+  Phone,
+} from "lucide-react";
 
+import { Button } from "../ui/button";
+import emailjs from "@emailjs/browser";
+import toast from "react-hot-toast";
+
+const Input = () => {
   const [form, setForm] = useState({
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
   });
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
   };
+
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!executeRecaptcha) {
-      alert("Recaptcha not ready");
-      return;
-    }
+    if (loading) return;
 
-    // 1. Get recaptcha token
-    const token = await executeRecaptcha('contact_form');
+    setLoading(true);
 
-    console.log("Token:", token);
-
-    // 2. Send email via EmailJS
     try {
-      await emailjs.send(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
+      const result = await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
-          ...form,
-          recaptcha_token: token, // optional
+          name: form.name.trim(),
+          email: form.email.trim(),
+          phone: form.phone.trim(),
+          subject: form.subject.trim(),
+          message: form.message.trim(),
         },
-        'YOUR_PUBLIC_KEY'
+        import.meta.env.VITE_EMAILJS_PUBLIC_ID
       );
 
-      alert("Message sent!");
+      if (result.status === 200) {
+        toast.success("Message Successfully sent!");
+
+        setForm({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      }
     } catch (error) {
+      toast.error("Failed to send message.");
       console.error(error);
-      alert("Failed to send message");
+    } finally {
+      setLoading(false);
     }
   };
+
   return (
     <StyledWrapper>
       <form onSubmit={handleSubmit}>
@@ -61,14 +82,16 @@ const Input = () => {
               <input
                 className="input bg-[#f8fafc] dark:bg-black"
                 type="text"
+                name="name"
                 placeholder="Enter your name"
+                value={form.name}
                 onChange={handleChange}
                 required
               />
             </div>
           </div>
 
-          {/* NAME */}
+          {/* EMAIL */}
           <div className="field">
             <span className="label">Email:</span>
             <div className="group">
@@ -76,29 +99,33 @@ const Input = () => {
               <input
                 className="input bg-[#f8fafc] dark:bg-black"
                 type="email"
+                name="email"
                 placeholder="Enter your email"
+                value={form.email}
                 onChange={handleChange}
                 required
               />
             </div>
           </div>
 
-          {/* NAME */}
+          {/* PHONE */}
           <div className="field">
             <span className="label">Phone:</span>
             <div className="group">
               <Phone className="icon" />
               <input
                 className="input bg-[#f8fafc] dark:bg-black"
-                type="number"
+                type="tel"
+                name="phone"
                 placeholder="Enter your phone number"
+                value={form.phone}
                 onChange={handleChange}
                 required
               />
             </div>
           </div>
 
-          {/* NAME */}
+          {/* SUBJECT */}
           <div className="field">
             <span className="label">Subject:</span>
             <div className="group">
@@ -106,7 +133,9 @@ const Input = () => {
               <input
                 className="input bg-[#f8fafc] dark:bg-black"
                 type="text"
-                placeholder="Enter subject message"
+                name="subject"
+                placeholder="Enter subject"
+                value={form.subject}
                 onChange={handleChange}
                 required
               />
@@ -119,14 +148,18 @@ const Input = () => {
             <div className="group">
               <textarea
                 className="textarea bg-[#f8fafc] dark:bg-black"
+                name="message"
                 placeholder="Enter your message"
+                value={form.message}
                 onChange={handleChange}
                 required
               />
             </div>
           </div>
 
-          <button type="submit">Submit</button>
+          <Button type="submit" disabled={loading}>
+            {loading ? "Sending..." : "Submit"}
+          </Button>
         </div>
       </form>
     </StyledWrapper>
@@ -181,7 +214,6 @@ const StyledWrapper = styled.div`
     box-shadow: 0 0 0 5px rgb(129 140 248 / 30%);
   }
 
-  /* ICON */
   .icon {
     position: absolute;
     left: 0.75rem;
@@ -190,12 +222,6 @@ const StyledWrapper = styled.div`
     width: 1.25rem;
     height: 1.25rem;
     color: #6366f1;
-  }
-
-  /* Fix for textarea icon alignment */
-  .textarea-icon {
-    top: 1rem;
-    transform: none;
   }
 `;
 

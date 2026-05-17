@@ -6,7 +6,7 @@ import {
 import Toga from '../../assets/images/toga.jpg'
 import ContainedBtn from "@/components/twcss/ContainedBtn";
 import OutlinedBtn from "@/components/twcss/OutlinedBtn";
-
+import about from "../../assets/json/AboutMe.json";
 const About = () => {
     const CV = '/pdf/CV.pdf';
     return (
@@ -32,10 +32,10 @@ const About = () => {
                         </div>
 
                         <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                            Clarence Duerme
+                            {about.firstname} {about.lastname}
                         </h3>
                         <p className="text-indigo-500 mb-6">
-                            Web Developer
+                            {about.forte}
                         </p>
 
 
@@ -45,7 +45,7 @@ const About = () => {
                                 className="flex items-center gap-3 p-3 rounded-lg border text-sm bg-gray-50 dark:bg-neutral-800 hover:bg-indigo-500 hover:text-white transition"
                             >
                                 <Mail size={16} />
-                                clarenceduerme40@gmail.com
+                                {about.email}
                             </a>
 
                             <a
@@ -53,7 +53,7 @@ const About = () => {
                                 className="flex items-center gap-3 p-3 rounded-lg border text-sm bg-gray-50 dark:bg-neutral-800 hover:bg-indigo-500 hover:text-white transition"
                             >
                                 <Phone size={16} />
-                                +63 976 652 2812
+                                {about.phone1Format}
                             </a>
 
                             <a
@@ -61,7 +61,7 @@ const About = () => {
                                 className="flex items-center gap-3 p-3 rounded-lg border text-sm bg-gray-50 dark:bg-neutral-800 hover:bg-indigo-500 hover:text-white transition"
                             >
                                 <Phone size={16} />
-                                +63 926 123 2826
+                                {about.phone2Format}
                             </a>
 
                             <a
@@ -69,7 +69,7 @@ const About = () => {
                                 className="flex items-center gap-3 p-3 rounded-lg border text-sm bg-gray-50 dark:bg-neutral-800 hover:bg-indigo-500 hover:text-white transition"
                             >
                                 <MapPin size={16} />
-                                Cabuyao Laguna Philippines
+                                {about.barangay} {about.city} {about.province} {about.country}
                             </a>
                         </div>
                     </div>
@@ -99,13 +99,13 @@ const About = () => {
 
                     <div className="grid grid-cols-2 gap-6 mb-8 bg-gray-100 dark:bg-neutral-800 p-6 rounded-2xl shadow">
                         <div className="text-center">
-                            <div className="text-2xl font-bold text-indigo-500">fetching ...</div>
+                            <div className="text-2xl font-bold text-indigo-500">{about.Projects_Completed}</div>
                             <div className="text-sm text-gray-500">
                                 Projects Completed
                             </div>
                         </div>
                         <div className="text-center">
-                            <div className="text-2xl font-bold text-indigo-500">fetching ...</div>
+                            <div className="text-2xl font-bold text-indigo-500">{about.YearsOfExp}</div>
                             <div className="text-sm text-gray-500">
                                 Years Experience
                             </div>

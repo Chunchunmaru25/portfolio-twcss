@@ -1,6 +1,6 @@
 import Header from "@/components/sections/Header";
 import Hero from "@/components/sections/Hero";
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import About from "@/components/sections/About";
 import Stats from "@/components/sections/Stats";
 import Skills from "@/components/sections/Skills";

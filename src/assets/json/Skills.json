@@ -46,14 +46,19 @@
             "progress": 80
         },
         {
-            "language": "LARAVEL",
+            "language": "Laravel",
             "description": "Developed web applications using Laravel package such as Fortify, Sanctum, Jetstream, Breeze, etc.",
             "progress": 80
         },
         {
-            "language": "MYSQL",
+            "language": "MySql",
             "description": "Efficient in database design, queries, and data management with MySQL.",
             "progress": 80
+        },
+        {
+            "language": "Express.js",
+            "description": "Experienced in building RESTful APIs, middleware integration, routing, and backend server development using Express.js.",
+            "progress": 60
         }
     ]
 }
